@@ -44,7 +44,7 @@ class Nav_Menu extends Widget_Base
         return ['delinternet'];
     }
 
-    public function _register_control()
+    public function _register_controls()
     {
     }
 

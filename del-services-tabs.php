@@ -65,14 +65,8 @@
         require_once __DIR__ . '/widgets/nav-menu.php';
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Nav_Menu() );
 
-
-
         require_once __DIR__ . '/widgets/service-tab.php';
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new DelinternetServiceTabWidget() );
-
-
-        
-
     }
 
     public function create_new_category( $elements_manager ) {
@@ -82,7 +76,8 @@
             [
                 'title' => __( 'Delinternet', 'delinternet-elementor-widgets' ),
                 'icon'  => 'fa fa-plug'
-            ]
+            ],
+            1
         );
 
     }
