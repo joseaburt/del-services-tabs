@@ -1,0 +1,21 @@
+.delinternet_menu_container {
+    padding: 1rem; 
+    background-color: black;
+    border-radius: 1rem;
+}
+
+.delinternet_menu {
+    background-color: blue;
+    color: white;
+}
+
+.delinternet_menu li {
+    margin: 0 20px;
+    list-style: none;
+    display: inline-block;
+}
+
+.delinternet_menu li a {
+    margin: 0 20px;
+    color: white;
+}
