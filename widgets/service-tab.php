@@ -345,24 +345,7 @@ class DelinternetServiceTabWidget extends Widget_Base
     }
 
 
-    private function pretty_dump($arr, $d = 1)
-    {
-        if ($d == 1) echo "<pre>";    // HTML Only
-        if (is_array($arr)) {
-            foreach ($arr as $k => $v) {
-                for ($i = 0; $i < $d; $i++) {
-                    echo "\t";
-                }
-                if (is_array($v)) {
-                    echo $k . PHP_EOL;
-                    $this->pretty_dump($v, $d + 1);
-                } else {
-                    echo $k . "\t" . $v . PHP_EOL;
-                }
-            }
-        }
-        if ($d == 1) echo "</pre>";   // HTML Only
-    }
+
 
 
     // Frontend
@@ -371,24 +354,11 @@ class DelinternetServiceTabWidget extends Widget_Base
         $settings = $this->get_settings_for_display();
 
 
-        $btns = ["one", "two", "three"];
-        $i = 0;
 
 ?>
         <div class="service-pack-card_<?php echo $settings['card_type']; ?>_theme">
             <div class="service-pack-card-container">
                 <div class="service-pack-card-inner-container">
-
-
-  
-            <!-- <?php foreach ($btns as $btn) : ?>
-                    <button class="tabs-btn" id="<?php echo $btn; ?>" data-is-selected="<?php echo $i++ == 0; ?>"><?php echo $btn; ?></button>
-                <?php endforeach; ?> -->
-       
-
-<!-- <button data-mostrar="false">FALSING</button>
-<button data-mostrar="true">SHOWING</button> -->
-             
 
                     <div class="service-pack-card-header">
                         <h2 class="header-title"><?php echo $settings['header_title']; ?></h2>
