@@ -18,6 +18,7 @@ namespace Delinternet\Plugins;
 use Delinternet\Plugins\Widgets\Nav_Menu;
 use Delinternet\Plugins\Widgets\DelinternetServiceTabWidget;
 use Delinternet\Plugins\Widgets\DelPostCardWidget;
+use Delinternet\Plugins\Widgets\RelatedPostsWidget;
 
 if (!defined('ABSPATH')) {
     exit;
@@ -69,6 +70,10 @@ final class DelServicesTabsWidget
 
         require_once __DIR__ . '/widgets/post-card.php';
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new DelPostCardWidget());
+
+
+        require_once __DIR__ . '/widgets/related-posts.php';
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new RelatedPostsWidget());
     }
 
     public function create_new_category($elements_manager)

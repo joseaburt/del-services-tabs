@@ -1,5 +1,4 @@
 <?php
-
 /*
  * Widget Name:       Delinternet Post Card
  * Description:       This is a component to render a set of posts.
@@ -17,7 +16,7 @@ use Delinternet\Plugins\Utils\StringFormatter;
 require_once __DIR__ . '/../utils/string-formatter.php';
 require_once __DIR__ . '/../utils/date-formatter.php';
 
-class DelPostCardWidget extends Widget_Base
+class RelatedPostsWidget extends Widget_Base
 {
 
     public function __construct($data = array(), $args = null)
@@ -29,19 +28,19 @@ class DelPostCardWidget extends Widget_Base
 
     protected function init_scripts()
     {
-        wp_enqueue_script('delinternet-post-card-js', plugin_dir_url(__FILE__) . '../assets/js/post-card.js');
-        wp_enqueue_style('delinternet-post-card-css', plugin_dir_url(__FILE__) . '../assets/css/post-card.css');
+        wp_enqueue_script('delinternet-related-posts-js', plugin_dir_url(__FILE__) . '../assets/js/related-posts.js');
+        wp_enqueue_style('delinternet-related-posts-css', plugin_dir_url(__FILE__) . '../assets/css/related-posts.css');
     }
 
     public function get_name()
     {
-        return 'delinternet-post-card';
+        return 'delinternet-related-posts';
     }
 
 
     public function get_title()
     {
-        return __('Post Card', 'delinternet-elementor-widgets');
+        return __('Related Posts', 'delinternet-elementor-widgets');
     }
 
     public function get_icon()
@@ -56,14 +55,13 @@ class DelPostCardWidget extends Widget_Base
 
     public function get_style_depends()
     {
-        return ['delinternet-services-tabs-css'];
+        return ['delinternet-related-posts-css'];
     }
 
     public function get_script_depends()
     {
-        return ['delinternet-services-tabs-js'];
+        return ['delinternet-related-posts-js'];
     }
-
 
     public function _register_controls()
     {
@@ -100,22 +98,52 @@ class DelPostCardWidget extends Widget_Base
         );
 
 
+        $this->add_control(
+            'post_card_orientation',
+            [
+                'label' => __('Post Card Orientation', 'plugin-domain'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'default' => 'horizontal',
+                'label_block' => true,
+                'options' => [
+                    'horizontal' => esc_html__('Horizontal', 'textdomain'),
+                    'vertical' => esc_html__('Vertical', 'textdomain'),
+
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'search_post_text',
+            [
+                'label' => __('Post Title length', 'plugin-domain'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => "",
+                'label_block' => true,
+                'placeholder' => __('Type the search criteria', 'plugin-domain'),
+            ]
+        );
 
         $this->end_controls_section();
     }
 
+
     protected function render()
     {
         $settings = $this->get_settings_for_display();
+        $num_of_post_to_show = $settings['search_post_text'];
         $num_of_post_to_show = $settings['number_of_posts'];
         $args = array('post_type' => 'post', 'posts_per_page' => $num_of_post_to_show);
         $query = new WP_Query($args);
+        $post_card_orientation = $settings['post_card_orientation'];
+        $grid_columns = $num_of_post_to_show;
+
+        if ('vertical' == $post_card_orientation) {
+            $grid_columns = 1;
+        }
 ?>
-
-        <div class="posts-container" style="--grid-columns: <?php echo $num_of_post_to_show; ?>;">
-
+        <div class="related-post-container related-post-<?php echo $post_card_orientation; ?>-container" style="--grid-columns: <?php echo $grid_columns; ?>;">
             <?php
-
             if ($query->have_posts()) {
                 while ($query->have_posts()) {
                     $query->the_post();
@@ -126,11 +154,16 @@ class DelPostCardWidget extends Widget_Base
                     $post_title = StringFormatter::shortText(the_title("", "", false), $settings['post_title_lenght']);
             ?>
                     <a href="<?php the_permalink() ?>">
-                        <div style="--post-thumbnail-url: url('<?php echo the_post_thumbnail_url(); ?>');" class="post-item-container">
-                            <div class="post-content">
+                        <div class="related-post-item-container <?php echo "horizontal" == $post_card_orientation ?  'realted-post-item-horizontal-container' : 'realted-post-item-vertial-container' ?>">
+                            <?php if (has_post_thumbnail()) : ?>
+                                <div class="related-post-thumbnail">
+                                    <?php the_post_thumbnail("large"); ?>
+                                </div>
+                            <?php endif; ?>
+                            <div class="related-post-content">
                                 <div>
-                                    <p class="post-date"><?php echo $time_ago; ?></p>
-                                    <h6 class="post-title"><?php echo $post_title; ?></h6>
+                                    <h6 class="related-post-title"><?php echo $post_title; ?></h6>
+                                    <p class="realted-post-date"><?php echo $time_ago; ?></p>
                                 </div>
                             </div>
                         </div>
@@ -145,7 +178,6 @@ class DelPostCardWidget extends Widget_Base
         </div>
 
 <?php
-
 
     }
 }

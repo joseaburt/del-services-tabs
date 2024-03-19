@@ -1,0 +1,119 @@
+/* 
+    Widget Styles
+    Widget Name:       Post Card
+    Author:            Jose Aburto
+    Author URI:        https://www.linkedin.com/in/jose-aburto/
+*/
+
+
+.elementor-widget-container {
+    width: 100% !important;
+}
+
+
+.related-post-container {
+    gap: 1rem;
+    width: 100%;
+    display: grid;
+}
+
+.related-post-horizontal-container {
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+}
+
+
+@media (min-width: 581px) and (max-width: 930px) {
+    .related-post-horizontal-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 580px) {
+    .related-post-horizontal-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.related-post-vertical-container {
+    grid-template-columns: 1fr !important;
+}
+
+.realted-post-item-horizontal-container {
+    height: 100%;
+    width: 100%;
+    min-width: 250px;
+    min-height: 281px;
+}
+
+.realted-post-item-horizontal-container > .related-post-thumbnail {
+    height: 70%;
+    display: flex;
+    overflow: hidden;
+    border-radius: 1rem;
+    align-items: center;
+    justify-content: center;
+    background-color: #E5E5E5;
+}
+
+.realted-post-item-vertial-container {
+    display: flex;
+    gap: 1rem;
+}
+
+
+.realted-post-item-vertial-container > .related-post-thumbnail {
+    max-width: 40%;
+    min-width: 40%;
+    display: flex;
+    overflow: hidden;
+    border-radius: 1rem;
+    align-items: center;
+    justify-content: center;
+    background-color: #E5E5E5;
+}
+
+.related-post-thumbnail img {
+    transform: scale(1.4);
+    transition: transform 0.3s ease;
+}
+
+.related-post-item-container:hover .related-post-thumbnail img {
+    transform: scale(1.5);
+}
+
+.realted-post-item-horizontal-container > .related-post-content {
+    margin-top: 1rem;
+}
+
+.realted-post-item-vertical-container > .related-post-content {
+    margin-top: 0rem;
+}
+
+
+.related-post-content div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.related-post-content .related-post-title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    line-height: 1.5rem !important;
+    font-family: 'Open Sans', serif;
+}
+
+.related-post-item-container:hover .related-post-title {
+    color: var(--e-global-color-accent);
+}
+
+.related-post-content .realted-post-date {
+    color: #000000b3;
+}
+
+.related-post-item-container:hover .realted-post-date {
+    color: var(--e-global-color-accent);
+}
