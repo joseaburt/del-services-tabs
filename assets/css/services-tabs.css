@@ -193,3 +193,8 @@
     color: #000 !important;
     border-radius: 50rem !important;
   }
+
+
+  button[data-mostrar="false"] {
+    display: none !important;
+  }

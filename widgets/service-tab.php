@@ -369,10 +369,26 @@ class DelinternetServiceTabWidget extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
+
+
+        $btns = ["one", "two", "three"];
+        $i = 0;
+
 ?>
         <div class="service-pack-card_<?php echo $settings['card_type']; ?>_theme">
             <div class="service-pack-card-container">
                 <div class="service-pack-card-inner-container">
+
+
+  
+            <!-- <?php foreach ($btns as $btn) : ?>
+                    <button class="tabs-btn" id="<?php echo $btn; ?>" data-is-selected="<?php echo $i++ == 0; ?>"><?php echo $btn; ?></button>
+                <?php endforeach; ?> -->
+       
+
+<!-- <button data-mostrar="false">FALSING</button>
+<button data-mostrar="true">SHOWING</button> -->
+             
 
                     <div class="service-pack-card-header">
                         <h2 class="header-title"><?php echo $settings['header_title']; ?></h2>
