@@ -60,14 +60,96 @@ class DelPostCardWidget extends Widget_Base
     }
 
 
+    public function _register_controls()
+    {
+        $this->start_controls_section(
+            'posts_section',
+            [
+                'label' => __('Post Number', 'my-elementor-widget'),
+                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+            ]
+        );
+
+
+        $this->add_control(
+            'number_of_posts',
+            [
+                'label' => __('Number of posts to show', 'plugin-domain'),
+                'type' => \Elementor\Controls_Manager::NUMBER,
+                'default' => 3,
+                'label_block' => true,
+                'placeholder' => __('Type the number of post to show', 'plugin-domain'),
+            ]
+        );
+
+
+        $this->add_control(
+            'post_title_lenght',
+            [
+                'label' => __('Post Title length', 'plugin-domain'),
+                'type' => \Elementor\Controls_Manager::NUMBER,
+                'default' => 58,
+                'label_block' => true,
+                'placeholder' => __('Type the lenght of the post title', 'plugin-domain'),
+            ]
+        );
+
+
+
+        $this->end_controls_section();
+    }
+
+
+    protected function custom_human_time_diff($time_diff)
+    {
+        $minute = 60;
+        $hour = $minute * 60;
+        $day = $hour * 24;
+        $week = $day * 7;
+        $month = $day * 30.44; 
+        $year = $day * 365.25;
+
+        if ($time_diff < $minute) {
+            $time_ago = sprintf(_n('%s second ago', '%s seconds ago', $time_diff, 'text-domain'), $time_diff);
+        } elseif ($time_diff < $hour) {
+            $time_ago = sprintf(_n('%s minute ago', '%s minutes ago', floor($time_diff / $minute), 'text-domain'), floor($time_diff / $minute));
+        } elseif ($time_diff < $day) {
+            $time_ago = sprintf(_n('%s hour ago', '%s hours ago', floor($time_diff / $hour), 'text-domain'), floor($time_diff / $hour));
+        } elseif ($time_diff < $week) {
+            $time_ago = sprintf(_n('%s day ago', '%s days ago', floor($time_diff / $day), 'text-domain'), floor($time_diff / $day));
+        } elseif ($time_diff < $month) {
+            $time_ago = sprintf(_n('%s week ago', '%s weeks ago', floor($time_diff / $week), 'text-domain'), floor($time_diff / $week));
+        } elseif ($time_diff < $year) {
+            $time_ago = sprintf(_n('%s month ago', '%s months ago', floor($time_diff / $month), 'text-domain'), floor($time_diff / $month));
+        } else {
+            $time_ago = sprintf(_n('%s year ago', '%s years ago', floor($time_diff / $year), 'text-domain'), floor($time_diff / $year));
+        }
+
+        return $time_ago;
+    }
+
+    protected function shortText($string = "", $length = 58)
+    {
+        if (strlen($string) > $length) {
+            $string = preg_replace('/\s+?(\S+)?$/', '', substr($string, 0, $length)) . "...";
+        }
+        return $string;
+    }
+
+
     protected function render()
     {
-        $args = array('post_type' => 'post', 'posts_per_page' => 3);
+        $settings = $this->get_settings_for_display();
+        $num_of_post_to_show = $settings['number_of_posts'];
+        $args = array('post_type' => 'post', 'posts_per_page' => $num_of_post_to_show);
         $query = new WP_Query($args);
+
+
+
 
 ?>
 
-        <div class="posts-container" style="--grid-columns: 3;">
+        <div class="posts-container" style="--grid-columns: <?php echo $num_of_post_to_show; ?>;">
 
             <?php
 
@@ -78,28 +160,16 @@ class DelPostCardWidget extends Widget_Base
                     $post_date = get_post_time('U', true);
                     $current_time = current_time('timestamp');
                     $time_diff = $current_time - $post_date;
+                    $time_ago = $this->custom_human_time_diff($time_diff);
 
-                    $minute = 60;
-                    $hour = $minute * 60;
-                    $day = $hour * 24;
-
-                    if ($time_diff < $minute) {
-                        $time_ago = sprintf(_n('%s second ago', '%s seconds ago', $time_diff, 'text-domain'), $time_diff);
-                    } elseif ($time_diff < $hour) {
-                        $time_ago = sprintf(_n('%s minute ago', '%s minutes ago', floor($time_diff / $minute), 'text-domain'), floor($time_diff / $minute));
-                    } elseif ($time_diff < $day) {
-                        $time_ago = sprintf(_n('%s hour ago', '%s hours ago', floor($time_diff / $hour), 'text-domain'), floor($time_diff / $hour));
-                    } else {
-                        $time_ago = sprintf(_n('%s day ago', '%s days ago', floor($time_diff / $day), 'text-domain'), floor($time_diff / $day));
-                    }
-
+                    $post_title = $this->shortText(the_title("", "", false), $settings['post_title_lenght']);
             ?>
                     <a href="<?php the_permalink() ?>">
                         <div style="--post-thumbnail-url: url('<?php echo the_post_thumbnail_url(); ?>');" class="post-item-container">
                             <div class="post-content">
                                 <div>
                                     <p class="post-date"><?php echo $time_ago; ?></p>
-                                    <h6 class="post-title"><?php echo the_title(); ?></h6>
+                                    <h6 class="post-title"><?php echo $post_title; ?></h6>
                                 </div>
                             </div>
                         </div>

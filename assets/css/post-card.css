@@ -57,9 +57,10 @@
     margin: 0;
     color: #FFF;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.2rem;
     padding-left: 10px;
-    line-height: 19px !important;
+    text-transform: capitalize;
+    line-height: 1.5rem !important;
     font-family: 'Open Sans', serif;
     border-left: 5px solid var(--e-global-color-primary);
 }
