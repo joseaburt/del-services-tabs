@@ -65,7 +65,7 @@ class DelPostCardWidget extends Widget_Base
         $this->start_controls_section(
             'posts_section',
             [
-                'label' => __('Post Number', 'my-elementor-widget'),
+                'label' => __('Post Settings', 'my-elementor-widget'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
