@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /*
  * Plugin Name:       Delinternet Services Tabs
@@ -13,21 +13,19 @@
  */
 
 
- namespace Delinternet\Plugins;
+namespace Delinternet\Plugins;
 
- use Delinternet\Plugins\Widgets\Nav_Menu;
- use Delinternet\Plugins\Widgets\DelinternetServiceTabWidget;
+use Delinternet\Plugins\Widgets\Nav_Menu;
+use Delinternet\Plugins\Widgets\DelinternetServiceTabWidget;
+use Delinternet\Plugins\Widgets\DelPostCardWidget;
 
-
- 
-
-
- if ( ! defined('ABSPATH') ) {
+if (!defined('ABSPATH')) {
     exit;
- }
+}
 
 
- final class DelServicesTabsWidget {
+final class DelServicesTabsWidget
+{
     const VERSION = '0.1.0';
     const ELEMENTOR_MINIMUN_VERSION = '3.0.0';
     const PHP_MINIMUN_VERSION = '7.0';
@@ -36,23 +34,22 @@
 
     public function __construct()
     {
-        add_action( 'this', [ $this, 'i18n' ] );
-        add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
-        add_action( 'elementor/elements/categories_registered', [ $this, 'create_new_category' ] );
-        add_action( 'elementor/widgets/widgets_registered', [ $this, 'init_widgets' ] );
+        add_action('this', [$this, 'i18n']);
+        add_action('plugins_loaded', [$this, 'init_plugin']);
+        add_action('elementor/elements/categories_registered', [$this, 'create_new_category']);
+        add_action('elementor/widgets/widgets_registered', [$this, 'init_widgets']);
     }
 
-    public function i18n() 
+    public function i18n()
     {
-        load_plugin_textdomain( "del-plugins" );
+        load_plugin_textdomain("del-plugins");
     }
 
-    public function init_controls() 
+    public function init_controls()
     {
-
     }
 
-    public function init_plugin() 
+    public function init_plugin()
     {
         // check version php version
         // Check elementor installation
@@ -60,26 +57,31 @@
         // bring in the controls
     }
 
-    public function init_widgets() 
+    public function init_widgets()
     {
         require_once __DIR__ . '/widgets/nav-menu.php';
-        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Nav_Menu() );
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Nav_Menu());
 
         require_once __DIR__ . '/widgets/service-tab.php';
-        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new DelinternetServiceTabWidget() );
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new DelinternetServiceTabWidget());
+
+
+
+        require_once __DIR__ . '/widgets/post-card.php';
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new DelPostCardWidget());
     }
 
-    public function create_new_category( $elements_manager ) {
+    public function create_new_category($elements_manager)
+    {
 
         $elements_manager->add_category(
             'delinternet',
             [
-                'title' => __( 'Delinternet', 'delinternet-elementor-widgets' ),
+                'title' => __('Delinternet', 'delinternet-elementor-widgets'),
                 'icon'  => 'fa fa-plug'
             ],
             1
         );
-
     }
 
 
@@ -87,16 +89,15 @@
     // Singleton
     // ===============================================
 
-    public static function get_instance() 
+    public static function get_instance()
     {
         if (null == self::$_instance) {
             self::$_instance = new Self();
         }
         return self::$_instance;
     }
- }
+}
 
 
 
 DelServicesTabsWidget::get_instance();
-
