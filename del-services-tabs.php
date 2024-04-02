@@ -19,6 +19,10 @@ use Delinternet\Plugins\Widgets\Nav_Menu;
 use Delinternet\Plugins\Widgets\DelinternetServiceTabWidget;
 use Delinternet\Plugins\Widgets\DelPostCardWidget;
 use Delinternet\Plugins\Widgets\RelatedPostsWidget;
+use Delinternet\Plugins\Widgets\AccordionWidget;
+
+
+
 
 if (!defined('ABSPATH')) {
     exit;
@@ -74,6 +78,9 @@ final class DelServicesTabsWidget
 
         require_once __DIR__ . '/widgets/related-posts.php';
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new RelatedPostsWidget());
+
+        require_once __DIR__ . '/widgets/accordion.php';
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new AccordionWidget());        
     }
 
     public function create_new_category($elements_manager)
