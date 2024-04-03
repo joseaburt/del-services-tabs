@@ -1,0 +1,78 @@
+/* 
+    Widget Styles
+    Widget Name:       Tab Component
+    Author:            Jose Aburto
+    Author URI:        https://www.linkedin.com/in/jose-aburto/
+*/
+
+:root {
+    --accordion-gray-dark: #dee2e6;
+}
+
+.elementor-widget-container {
+    width: 100% !important;
+}
+
+#questions-tab-container button {
+    background-color: transparent !important;
+    color: var(--e-global-color-secondary) !important;
+}
+
+.tabs-container2 {
+    gap: 1rem;
+    width: 100%;
+    display: flex;
+    position: relative;
+    overflow-x: hidden;
+    align-items: center;
+}
+
+#questions-tab-header {
+    margin: 0;
+    display: flex;
+    max-width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    border-bottom: 3px solid var(--accordion-gray-dark);
+}
+
+#questions-tab-header .questions-tab-item {
+    list-style: none;
+    text-wrap: nowrap;
+}
+
+.questions-tab-tab-content {
+    display: none;
+    padding: 1rem 0px;
+}
+
+.questions-tab-header-container {
+    width: 100%;
+}
+
+.tabs-container {
+    gap: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#tabs-indicator {
+    bottom: 0;
+    height: 4px;
+    display: none;
+    position: absolute;
+    border-radius: 2rem;
+    background-color: var(--e-global-color-primary);
+}
+
+.action-btn {
+    padding: 0rem;
+    height: fit-content;
+    background-color: #ffffff5e !important;
+}
+
+#tab-content-1 {
+    display: block;
+}
