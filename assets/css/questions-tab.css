@@ -7,6 +7,7 @@
 
 :root {
     --accordion-gray-dark: #dee2e6;
+    --accordion-gray-light: #f6f6f6;
 }
 
 .elementor-widget-container {
@@ -31,6 +32,7 @@
     margin: 0;
     display: flex;
     max-width: 100%;
+    min-width: 100%;
     flex-wrap: nowrap;
     overflow-x: hidden;
     border-bottom: 3px solid var(--accordion-gray-dark);
@@ -75,4 +77,61 @@
 
 #tab-content-1 {
     display: block;
+}
+
+
+/* =============================== */
+
+
+.elementor-widget-container {
+    width: 100% !important;
+}
+
+#tabs-accordion-container {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+}
+
+.tabs-accordion-item {
+    list-style: none;
+    border-radius: 1rem;
+}
+
+.tabs-accordion-summary {
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-weight: 500;
+    width: 100% !important;
+    padding: 1rem !important;
+    background-color: transparent !important;
+
+}
+
+.tabs-accordion-summary>span {
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--e-global-color-accent);
+}
+
+.tabs-accordion-item>.tabs-accordion-details {
+    display: none;
+    border-top: 1px dashed var(--accordion-gray-dark);
+    padding: 1rem 1rem 0rem 1rem !important;
+}
+
+.tabs-accordion-item[data-isVisible="true"]>.tabs-accordion-details {
+    display: block;
+}
+
+#open-btn-icon {
+    color: var(--e-global-color-secondary) !important;
+}
+
+#close-btn-icon {
+    display: none;
+    color: var(--e-global-color-primary) !important;
 }

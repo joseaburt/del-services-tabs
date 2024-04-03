@@ -13,9 +13,15 @@ function respondToVisibility(element, callback) {
     observer.observe(element);
 }
 
-function enabledButton(element) {
+function fromButton(element) {
     return {
-        ifGivenElementIsVisible: function (givenElement) {
+        hiddenItIf(condition = false) {
+            console.log(condition, "xxxxxx [] [] [] ");
+            element.style.display = "none"
+            element.style.cursor = condition ? "not-allowed" : "pointer";
+        },
+        disableItIfGivenElementIsVisible: function (givenElement) {
+            console.log(">>> ");
             respondToVisibility(givenElement, (isVisible) => {
                 element.style.disabled = !isVisible;
                 element.style.opacity = isVisible ? 0.5 : 1;
@@ -36,7 +42,7 @@ function initControllers({ firstTabButton, lastTabButton, headerContainer, sumOf
         return (-c / 2) * (t * (t - 2) - 1) + b;
     }
 
-    enabledButton(nextButton).ifGivenElementIsVisible(lastTabButton);
+    fromButton(nextButton).disableItIfGivenElementIsVisible(lastTabButton);
 
     nextButton.addEventListener("click", () => {
         const duration = 1000;
@@ -57,7 +63,7 @@ function initControllers({ firstTabButton, lastTabButton, headerContainer, sumOf
         requestAnimationFrame(updateScroll);
     });
 
-    enabledButton(prevButton).ifGivenElementIsVisible(firstTabButton);
+    fromButton(prevButton).disableItIfGivenElementIsVisible(firstTabButton);
 
     prevButton.addEventListener("click", () => {
         const duration = 1000;
@@ -77,6 +83,8 @@ function initControllers({ firstTabButton, lastTabButton, headerContainer, sumOf
 
         requestAnimationFrame(updateScroll);
     });
+
+    return { prevButton, nextButton }
 }
 
 function useIndicator() {
@@ -99,7 +107,7 @@ function useIndicator() {
 
 function useTabContent() {
     const container = document.getElementById("questions-tab-container");
-    const contents = container.querySelectorAll(".questions-tab-tab-content")
+    const contents = container.querySelectorAll(".questions-tab-tab-content");
     const selectedTabId = container.getAttribute("data-selectedTabId") ?? "0";
 
     return {
@@ -108,14 +116,43 @@ function useTabContent() {
                 const id = section.getAttribute("data-id");
                 if (id === selectedTabId) section.style.display = "block";
                 else section.style.display = "none";
+
+                section
+                    .querySelector("#tabs-accordion-container")
+                    .querySelectorAll("li")
+                    .forEach((item) => {
+                        const detailsContainer = item.getElementsByClassName("tabs-accordion-details")[0];
+                        const toggleBtn = item.getElementsByTagName("button")[0];
+
+                        const toggleBtnOpenIcon = toggleBtn.querySelector("#open-btn-icon");
+                        const toggleBtnCloseIcon = toggleBtn.querySelector("#close-btn-icon");
+
+                        toggleBtnOpenIcon.style.display = "block";
+                        toggleBtnCloseIcon.style.display = "none";
+
+                        toggleBtn.addEventListener("click", (ev) => {
+                            const isSummaryVisible = item.getAttribute("data-isSummaryVisible") === "true" ? true : false;
+                            if (!isSummaryVisible) {
+                                detailsContainer.style.display = "block";
+                                toggleBtnOpenIcon.style.display = "none";
+                                toggleBtnCloseIcon.style.display = "block";
+                            } else {
+                                detailsContainer.style.display = "none";
+                                toggleBtnOpenIcon.style.display = "block";
+                                toggleBtnCloseIcon.style.display = "none";
+                            }
+
+                            item.setAttribute("data-isSummaryVisible", !isSummaryVisible);
+                        });
+                    });
             });
         },
         show: function (index) {
             contents.forEach((el) => (el.style.display = "none"));
             const contentContainer = document.getElementById(`tab-content-${index + 1}`);
             if (contentContainer) contentContainer.style.display = "block";
-        }
-    }
+        },
+    };
 }
 
 function main() {
@@ -124,7 +161,6 @@ function main() {
     const headerContainer = document.getElementById("questions-tab-header");
     const items = headerContainer.querySelectorAll("li.questions-tab-item");
     let [lastTabButton, firstTabButton, selectedItem, sumOfAllButtonWidth] = [null, null, null, 0];
-
 
     items.forEach((item, i) => {
         const button = item.getElementsByTagName("button")[0];
@@ -146,7 +182,7 @@ function main() {
         lastTabButton = item;
     });
 
-    initControllers({
+    const { prevButton, nextButton } = initControllers({
         firstTabButton,
         lastTabButton,
         headerContainer,
@@ -154,7 +190,13 @@ function main() {
         onScroll: () => indicator.setPosition(selectedItem, headerContainer, false),
     });
 
+    const container = document.getElementsByClassName("tabs-container2")[0];
+    fromButton(prevButton).hiddenItIf(headerContainer.offsetWidth < container.offsetWidth)
+    fromButton(nextButton).hiddenItIf(headerContainer.offsetWidth < container.offsetWidth)
+
     contentTab.init();
 }
 
-document.addEventListener("DOMContentLoaded", () => main());
+document.addEventListener("DOMContentLoaded", () => {
+    main();
+});
