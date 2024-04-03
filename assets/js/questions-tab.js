@@ -16,12 +16,10 @@ function respondToVisibility(element, callback) {
 function fromButton(element) {
     return {
         hiddenItIf(condition = false) {
-            console.log(condition, "xxxxxx [] [] [] ");
             element.style.display = "none"
             element.style.cursor = condition ? "not-allowed" : "pointer";
         },
         disableItIfGivenElementIsVisible: function (givenElement) {
-            console.log(">>> ");
             respondToVisibility(givenElement, (isVisible) => {
                 element.style.disabled = !isVisible;
                 element.style.opacity = isVisible ? 0.5 : 1;
