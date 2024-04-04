@@ -18,9 +18,9 @@ const widgetCode = `<?php
  * Author URI:        https://www.linkedin.com/in/jose-aburto/
  */
 
-namespace Delinternet\Plugins\Widgets;
+namespace Delinternet\\Plugins\\Widgets;
 
-use Elementor\Widget_Base;
+use Elementor\\Widget_Base;
 
 
 class {{widgetname}} extends Widget_Base
@@ -46,7 +46,7 @@ class {{widgetname}} extends Widget_Base
 
     public function get_title()
     {
-        return __('Delinternet {{widgetname}}', 'delinternet-elementor-widgets');
+        return __('{{widgetname}}', 'delinternet-elementor-widgets');
     }
 
     public function get_icon()
@@ -111,7 +111,7 @@ New Widget Created!!!
 Import it manually into the del-services-tabs.php file.
 
     require_once __DIR__ . '/widgets/${filename}.php';
-    \\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new ${widgetClassName}());
+    \\Elementor\\Plugin::instance()->widgets_manager->register_widget_type(new ${widgetClassName}());
 `;
 
 console.log(registrationInstructions);
