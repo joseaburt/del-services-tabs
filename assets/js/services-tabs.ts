@@ -1,3 +1,10 @@
+/* 
+    Widget Script
+    Widget Name:       Delinternet Services Packs Tabs
+    Author:            Jose Aburto
+    Author URI:        https://www.linkedin.com/in/jose-aburto/
+*/
+
 type DataId = string;
 type UnSubscribe = () => void;
 
@@ -44,7 +51,6 @@ class EventBus {
 }
 
 const ON_TAB_CLICKED_EVENT = "ON_TAB_CLICKED_EVENT";
-
 
 class TabContentSectionComponent {
     private static readonly TAB_CONTENT_DATA_ID_KEY = "data-tab-content-id";
@@ -146,8 +152,6 @@ class ServiceTabsWidget {
             if (index === 0) tabButton.click();
         });
     }
-
-
 
     public static getInstance() {
         if (!this.instance) this.instance = new ServiceTabsWidget();

@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * Widget Name:       Delinternet Services Packs Tabs
+ * Description:       This is a component to render Delinternet Services Packs Tabs
+ * Author:            Jose Aburto
+ * Author URI:        https://www.linkedin.com/in/jose-aburto/
+ */
+
 namespace Delinternet\Plugins\Widgets;
 
 use Elementor\Widget_Base;

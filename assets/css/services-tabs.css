@@ -1,3 +1,9 @@
+/* 
+    Widget Styles
+    Widget Name:       Delinternet Services Packs Tabs
+    Author:            Jose Aburto
+    Author URI:        https://www.linkedin.com/in/jose-aburto/
+*/
 .service-pack-card_light_theme {
   /* =============================================== */
   /* Card Title */
@@ -12,37 +18,29 @@
   /* Card Button */
   /* =============================================== */
 }
-
 .service-pack-card_light_theme .service-pack-card-container {
   background-color: white;
 }
-
 .service-pack-card_light_theme .header-title {
   color: #000 !important;
 }
-
 .service-pack-card_light_theme .previous_price small {
   color: #37424a !important;
 }
-
 .service-pack-card_light_theme .previous_price del {
   color: #37424a !important;
 }
-
 .service-pack-card_light_theme .price_details {
   color: #000 !important;
 }
-
 .service-pack-card_light_theme .service-pack-card-features {
   color: #000 !important;
   width: 100% !important;
 }
-
 .service-pack-card_light_theme .service-pack-card-action .button-pricing-action {
   background-color: transparent !important;
   border: 1px solid var(--e-global-color-primary) !important;
 }
-
 .service-pack-card_light_theme .service-pack-card-action .button-pricing-action:hover {
   background-color: var(--e-global-color-primary) !important;
   border: 1px solid var(--e-global-color-primary) !important;
@@ -62,36 +60,28 @@
   /* Card Button */
   /* =============================================== */
 }
-
 .service-pack-card_dark_theme .service-pack-card-container {
   background-color: #37424a;
 }
-
 .service-pack-card_dark_theme .header-title {
   color: white !important;
 }
-
 .service-pack-card_dark_theme .previous_price small {
   color: white !important;
 }
-
 .service-pack-card_dark_theme .previous_price del {
   color: white !important;
 }
-
 .service-pack-card_dark_theme .price_details {
   color: white !important;
 }
-
 .service-pack-card_dark_theme .service-pack-card-features {
   color: #fff !important;
   width: 100% !important;
 }
-
 .service-pack-card_dark_theme .service-pack-card-action .button-pricing-action {
   background-color: var(--e-global-color-primary) !important;
 }
-
 .service-pack-card_dark_theme .service-pack-card-action .button-pricing-action:hover {
   background-color: var(--e-global-color-accent) !important;
 }
@@ -219,13 +209,11 @@
   align-items: center;
   row-gap: 2rem;
 }
-
 .del-service-tabs-widget-container .del-service-tabs-container {
   border: 1px solid #e3e3e3;
   padding: 0.5rem;
   border-radius: 5rem;
 }
-
 .del-service-tabs-widget-container .tab-btn {
   border-radius: 5rem !important;
   color: var(--e-global-color-text) !important;
@@ -233,20 +221,16 @@
   padding: 0.8rem 1rem !important;
   background-color: transparent !important;
 }
-
 .del-service-tabs-widget-container .tab-btn:hover {
   background-color: rgba(185, 210, 5, 0.1215686275) !important;
 }
-
 .del-service-tabs-widget-container .active-tab {
   background-color: var(--e-global-color-primary) !important;
 }
-
 .del-service-tabs-widget-container .active-tab:hover {
   background-color: var(--e-global-color-primary) !important;
 }
-
-.del-service-tabs-widget-container .del-service-content-sections-container>section {
+.del-service-tabs-widget-container .del-service-content-sections-container > section {
   display: none;
 }
 

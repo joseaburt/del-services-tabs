@@ -1,4 +1,10 @@
 "use strict";
+/*
+    Widget Script
+    Widget Name:       Delinternet Services Packs Tabs
+    Author:            Jose Aburto
+    Author URI:        https://www.linkedin.com/in/jose-aburto/
+*/
 var EventBus = /** @class */ (function () {
     function EventBus() {
         this.bus = {};
