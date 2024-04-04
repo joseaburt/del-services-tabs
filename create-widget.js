@@ -87,11 +87,11 @@ if (fs.existsSync(path.join(__dirname, "./widgets", `${filename}.php`))) {
 }
 
 
-
+const widgetClassName = filename.replace(/-/g, ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('')
 
 const compiledWidgetCode = widgetCode
     .replace(/{{filename}}/g, filename)
-    .replace(/{{widgetname}}/g, filename.replace(/-/g, ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(''))
+    .replace(/{{widgetname}}/g, widgetClassName)
 
 
 
@@ -105,6 +105,15 @@ if (!fs.existsSync(path.join(__dirname, "./assets/css", `${filename}.css`))) {
     fs.writeFileSync(path.join(__dirname, "./assets/css", `${filename}.css`), `.del-${filename} {}`);
 }
 
+const registrationInstructions = `
+New Widget Created!!!
 
+Import it manually into the del-services-tabs.php file.
+
+    require_once __DIR__ . '/widgets/${filename}.php';
+    \\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new ${widgetClassName}());
+`;
+
+console.log(registrationInstructions);
 
 
