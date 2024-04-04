@@ -20,6 +20,7 @@ use Delinternet\Plugins\Widgets\DelinternetServiceTabWidget;
 use Delinternet\Plugins\Widgets\DelPostCardWidget;
 use Delinternet\Plugins\Widgets\RelatedPostsWidget;
 use Delinternet\Plugins\Widgets\AccordionWidget;
+use Delinternet\Plugins\Widgets\DecoratedHeadingWidget;
 use Delinternet\Plugins\Widgets\QuestionsTabWidget;
 
 if (!defined('ABSPATH')) {
@@ -83,6 +84,10 @@ final class DelServicesTabsWidget
 
         require_once __DIR__ . '/widgets/questions-tab.php';
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new QuestionsTabWidget());
+
+
+        require_once __DIR__ . '/widgets/decorated-heading.php';
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new DecoratedHeadingWidget());
     }
 
     public function create_new_category($elements_manager)
