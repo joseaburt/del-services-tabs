@@ -1,200 +1,253 @@
 .service-pack-card_light_theme {
-    /* =============================================== */
-    /* Card Title */
-    /* =============================================== */
-    /* =============================================== */
-    /* Card Prices */
-    /* =============================================== */
-    /* =============================================== */
-    /* Card Features */
-    /* =============================================== */
-    /* =============================================== */
-    /* Card Button */
-    /* =============================================== */
-  }
-  .service-pack-card_light_theme .service-pack-card-container {
-    background-color: white;
-  }
-  .service-pack-card_light_theme .header-title {
-    color: #000 !important;
-  }
-  .service-pack-card_light_theme .previous_price small {
-    color: #37424a !important;
-  }
-  .service-pack-card_light_theme .previous_price del {
-    color: #37424a !important;
-  }
-  .service-pack-card_light_theme .price_details {
-    color: #000 !important;
-  }
-  .service-pack-card_light_theme .service-pack-card-features {
-    color: #000 !important;
-    width: 100% !important;
-  }
-  .service-pack-card_light_theme .service-pack-card-action .button-pricing-action {
-    background-color: transparent !important;
-    border: 1px solid var(--e-global-color-primary) !important;
-  }
-  .service-pack-card_light_theme .service-pack-card-action .button-pricing-action:hover {
-    background-color: var(--e-global-color-primary) !important;
-    border: 1px solid var(--e-global-color-primary) !important;
-  }
-  
-  .service-pack-card_dark_theme {
-    /* =============================================== */
-    /* Card Title */
-    /* =============================================== */
-    /* =============================================== */
-    /* Card Prices */
-    /* =============================================== */
-    /* =============================================== */
-    /* Card Features */
-    /* =============================================== */
-    /* =============================================== */
-    /* Card Button */
-    /* =============================================== */
-  }
-  .service-pack-card_dark_theme .service-pack-card-container {
-    background-color: #37424a;
-  }
-  .service-pack-card_dark_theme .header-title {
-    color: white !important;
-  }
-  .service-pack-card_dark_theme .previous_price small {
-    color: white !important;
-  }
-  .service-pack-card_dark_theme .previous_price del {
-    color: white !important;
-  }
-  .service-pack-card_dark_theme .price_details {
-    color: white !important;
-  }
-  .service-pack-card_dark_theme .service-pack-card-features {
-    color: #fff !important;
-    width: 100% !important;
-  }
-  .service-pack-card_dark_theme .service-pack-card-action .button-pricing-action {
-    background-color: var(--e-global-color-primary) !important;
-  }
-  .service-pack-card_dark_theme .service-pack-card-action .button-pricing-action:hover {
-    background-color: var(--e-global-color-accent) !important;
-  }
-  
-  .elementor-widget-container {
-    width: fit-content;
-  }
-  
-  .service-pack-card-container {
-    padding: 16px 15px !important;
-    border-radius: 1rem;
-    display: flex;
-    width: fit-content;
-    min-width: 269px;
-    min-height: 368px;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-  }
-  
-  .service-pack-card-inner-container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100% !important;
-    padding: 0.5rem !important;
-  }
-  
   /* =============================================== */
   /* Card Title */
   /* =============================================== */
-  .header-title {
-    font-weight: 600 !important;
-    font-size: 1.25rem !important;
-    font-size: "Open Sans", sans-serif !important;
-  }
-  
   /* =============================================== */
   /* Card Prices */
   /* =============================================== */
-  .service-pack-card-price {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  .service-pack-card-price-amounts {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-  
-  .service-pack-card-price-amounts small {
-    font-size: 1rem !important;
-  }
-  
-  .service-pack-card-price-amounts .amount {
-    font-size: 1.75rem !important;
-    font-weight: 700 !important;
-  }
-  
-  .new_price small {
-    color: var(--e-global-color-primary) !important;
-  }
-  
-  .new_price .amount {
-    color: var(--e-global-color-primary) !important;
-  }
-  
-  .custom_price_value {
-    font-size: 1.75rem !important;
-    font-weight: 700 !important;
-    color: var(--e-global-color-primary) !important;
-  }
-  
-  .price_details {
-    font-weight: 300 !important;
-  }
-  
-  /* =============================================== */
-  /* Card Divider */
-  /* =============================================== */
-  .service-pack-card-container .divider {
-    width: 100% !important;
-  }
-  
-  .service-pack-card-container .divider hr {
-    background-color: #e5e5e5 !important;
-  }
-  
   /* =============================================== */
   /* Card Features */
   /* =============================================== */
-  .service-pack-card-features {
-    width: 100% !important;
-  }
-  
   /* =============================================== */
   /* Card Button */
   /* =============================================== */
-  .service-pack-card-action {
-    width: 100% !important;
-    margin: 29px 24px 0px 24px !important;
-  }
-  
-  .service-pack-card-action .button-pricing-action {
-    display: inline-block;
-    width: 100% !important;
-    padding: 8px 12px;
-    font-size: 1rem !important;
-    font-weight: 400 !important;
-    text-align: center;
-    color: #000 !important;
-    border-radius: 50rem !important;
-  }
+}
 
+.service-pack-card_light_theme .service-pack-card-container {
+  background-color: white;
+}
 
-  button[data-mostrar="false"] {
-    display: none !important;
-  }
+.service-pack-card_light_theme .header-title {
+  color: #000 !important;
+}
+
+.service-pack-card_light_theme .previous_price small {
+  color: #37424a !important;
+}
+
+.service-pack-card_light_theme .previous_price del {
+  color: #37424a !important;
+}
+
+.service-pack-card_light_theme .price_details {
+  color: #000 !important;
+}
+
+.service-pack-card_light_theme .service-pack-card-features {
+  color: #000 !important;
+  width: 100% !important;
+}
+
+.service-pack-card_light_theme .service-pack-card-action .button-pricing-action {
+  background-color: transparent !important;
+  border: 1px solid var(--e-global-color-primary) !important;
+}
+
+.service-pack-card_light_theme .service-pack-card-action .button-pricing-action:hover {
+  background-color: var(--e-global-color-primary) !important;
+  border: 1px solid var(--e-global-color-primary) !important;
+}
+
+.service-pack-card_dark_theme {
+  /* =============================================== */
+  /* Card Title */
+  /* =============================================== */
+  /* =============================================== */
+  /* Card Prices */
+  /* =============================================== */
+  /* =============================================== */
+  /* Card Features */
+  /* =============================================== */
+  /* =============================================== */
+  /* Card Button */
+  /* =============================================== */
+}
+
+.service-pack-card_dark_theme .service-pack-card-container {
+  background-color: #37424a;
+}
+
+.service-pack-card_dark_theme .header-title {
+  color: white !important;
+}
+
+.service-pack-card_dark_theme .previous_price small {
+  color: white !important;
+}
+
+.service-pack-card_dark_theme .previous_price del {
+  color: white !important;
+}
+
+.service-pack-card_dark_theme .price_details {
+  color: white !important;
+}
+
+.service-pack-card_dark_theme .service-pack-card-features {
+  color: #fff !important;
+  width: 100% !important;
+}
+
+.service-pack-card_dark_theme .service-pack-card-action .button-pricing-action {
+  background-color: var(--e-global-color-primary) !important;
+}
+
+.service-pack-card_dark_theme .service-pack-card-action .button-pricing-action:hover {
+  background-color: var(--e-global-color-accent) !important;
+}
+
+.elementor-widget-container {
+  width: fit-content;
+}
+
+.service-pack-card-container {
+  padding: 16px 15px !important;
+  border-radius: 1rem;
+  display: flex;
+  width: fit-content;
+  min-width: 269px;
+  min-height: 368px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.service-pack-card-inner-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100% !important;
+  padding: 0.5rem !important;
+}
+
+/* =============================================== */
+/* Card Title */
+/* =============================================== */
+.header-title {
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  font-size: "Open Sans", sans-serif !important;
+}
+
+/* =============================================== */
+/* Card Prices */
+/* =============================================== */
+.service-pack-card-price {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.service-pack-card-price-amounts {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.service-pack-card-price-amounts small {
+  font-size: 1rem !important;
+}
+
+.service-pack-card-price-amounts .amount {
+  font-size: 1.75rem !important;
+  font-weight: 700 !important;
+}
+
+.new_price small {
+  color: var(--e-global-color-primary) !important;
+}
+
+.new_price .amount {
+  color: var(--e-global-color-primary) !important;
+}
+
+.custom_price_value {
+  font-size: 1.75rem !important;
+  font-weight: 700 !important;
+  color: var(--e-global-color-primary) !important;
+}
+
+.price_details {
+  font-weight: 300 !important;
+}
+
+/* =============================================== */
+/* Card Divider */
+/* =============================================== */
+.service-pack-card-container .divider {
+  width: 100% !important;
+}
+
+.service-pack-card-container .divider hr {
+  background-color: #e5e5e5 !important;
+}
+
+/* =============================================== */
+/* Card Features */
+/* =============================================== */
+.service-pack-card-features {
+  width: 100% !important;
+}
+
+/* =============================================== */
+/* Card Button */
+/* =============================================== */
+.service-pack-card-action {
+  width: 100% !important;
+  margin: 29px 24px 0px 24px !important;
+}
+
+.service-pack-card-action .button-pricing-action {
+  display: inline-block;
+  width: 100% !important;
+  padding: 8px 12px;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  text-align: center;
+  color: #000 !important;
+  border-radius: 50rem !important;
+}
+
+/* =============================================== */
+/* DELINTERNET SERVICES TABS */
+/* =============================================== */
+.del-service-tabs-widget-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2rem;
+}
+
+.del-service-tabs-widget-container .del-service-tabs-container {
+  border: 1px solid #e3e3e3;
+  padding: 0.5rem;
+  border-radius: 5rem;
+}
+
+.del-service-tabs-widget-container .tab-btn {
+  border-radius: 5rem !important;
+  color: var(--e-global-color-text) !important;
+  font-weight: 400 !important;
+  padding: 0.8rem 1rem !important;
+  background-color: transparent !important;
+}
+
+.del-service-tabs-widget-container .tab-btn:hover {
+  background-color: rgba(185, 210, 5, 0.1215686275) !important;
+}
+
+.del-service-tabs-widget-container .active-tab {
+  background-color: var(--e-global-color-primary) !important;
+}
+
+.del-service-tabs-widget-container .active-tab:hover {
+  background-color: var(--e-global-color-primary) !important;
+}
+
+.del-service-tabs-widget-container .del-service-content-sections-container>section {
+  display: none;
+}
+
+/*# sourceMappingURL=services-tabs.css.map */

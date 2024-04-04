@@ -356,65 +356,80 @@ class DelinternetServiceTabWidget extends Widget_Base
 
 
 ?>
-        <div class="service-pack-card_<?php echo $settings['card_type']; ?>_theme">
-            <div class="service-pack-card-container">
-                <div class="service-pack-card-inner-container">
+        <div class="del-service-tabs-widget-container">
+            <div id="del-service-tabs-container-id" class="del-service-tabs-container">
+                <button data-tab-id="1" id="service-tab-1" class="tab-btn active-tab">Fibra y movil</button>
+                <button data-tab-id="2" id="service-tab-2" class="tab-btn">Solo movil</button>
+                <button data-tab-id="3" id="service-tab-3" class="tab-btn">Solo Fibra</button>
+            </div>
+            <div id="del-service-content-sections-container-id" class="del-service-content-sections-container">
+                <section data-tab-content-id="1" id="service-tab-content-1" class="">
+                    <div class="service-pack-card_<?php echo $settings['card_type']; ?>_theme">
+                        <div class="service-pack-card-container">
+                            <div class="service-pack-card-inner-container">
 
-                    <div class="service-pack-card-header">
-                        <h2 class="header-title"><?php echo $settings['header_title']; ?></h2>
-                    </div>
-
-                    <div class="service-pack-card-price">
-
-                        <?php if ('yes' == $settings['show_prices']) : ?>
-                            <div class="service-pack-card-price-amounts">
-                                <div class="previous_price">
-                                    <small>€</small>
-                                    <del class="amount">
-                                        <?php echo $settings['previous_price']; ?>
-                                    </del>
+                                <div class="service-pack-card-header">
+                                    <h2 class="header-title"><?php echo $settings['header_title']; ?></h2>
                                 </div>
-                                <div class="new_price">
-                                    <small>€</small>
-                                    <span class="amount">
-                                        <?php echo $settings['new_price']; ?>
-                                    </span>
+
+                                <div class="service-pack-card-price">
+
+                                    <?php if ('yes' == $settings['show_prices']) : ?>
+                                        <div class="service-pack-card-price-amounts">
+                                            <div class="previous_price">
+                                                <small>€</small>
+                                                <del class="amount">
+                                                    <?php echo $settings['previous_price']; ?>
+                                                </del>
+                                            </div>
+                                            <div class="new_price">
+                                                <small>€</small>
+                                                <span class="amount">
+                                                    <?php echo $settings['new_price']; ?>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+
+
+                                    <?php if ('yes' != $settings['show_prices']) : ?>
+                                        <span class="custom_price_value">
+                                            <?php echo $settings['custom_price_value']; ?>
+                                        </span>
+                                    <?php endif; ?>
+
+
+                                    <p class="price_details">
+                                        <?php echo $settings['price_details']; ?>
+                                    </p>
+                                </div>
+                                <div class="divider">
+                                    <hr>
+                                </div>
+                                <div class="service-pack-card-features">
+                                    <?php foreach ($settings['list'] as $item) : ?>
+                                        <div><?php \Elementor\Icons_Manager::render_icon($item['feature_icon'], ['aria-hidden' => 'true']); ?> <?php echo $item['feature_text']; ?></div>
+                                    <?php endforeach; ?>
+                                </div>
+                                <div class="service-pack-card-action" style="background: <?php $settings['background_background']; ?>">
+                                    <a href="<?php echo $settings['button_link']; ?>" class="button-pricing-action">
+                                        <?php echo $settings['button_text']; ?>
+                                    </a>
                                 </div>
                             </div>
-                        <?php endif; ?>
-
-
-                        <?php if ('yes' != $settings['show_prices']) : ?>
-                            <span class="custom_price_value">
-                                <?php echo $settings['custom_price_value']; ?>
-                            </span>
-                        <?php endif; ?>
-
-
-                        <p class="price_details">
-                            <?php echo $settings['price_details']; ?>
-                        </p>
+                        </div>
                     </div>
-                    <div class="divider">
-                        <hr>
-                    </div>
-                    <div class="service-pack-card-features">
-                        <?php foreach ($settings['list'] as $item) : ?>
-                            <div><?php \Elementor\Icons_Manager::render_icon($item['feature_icon'], ['aria-hidden' => 'true']); ?> <?php echo $item['feature_text']; ?></div>
-                        <?php endforeach; ?>
-                    </div>
-                    <div class="service-pack-card-action" style="background: <?php $settings['background_background']; ?>">
-                        <a href="<?php echo $settings['button_link']; ?>" class="button-pricing-action">
-                            <?php echo $settings['button_text']; ?>
-                        </a>
-                    </div>
-                </div>
+                </section>
+                <section data-tab-content-id="2" id="service-tab-content-2" class="">
+                    Tab Content #2
+                </section>
+                <section data-tab-content-id="3" id="service-tab-content-3" class="">
+                    Tab Content #3
+                </section>
             </div>
+
+
         </div>
 <?php
     }
-
-    // protected function _content_template()
-    // {
-    // }
 }
