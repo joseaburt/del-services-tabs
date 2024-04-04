@@ -1,21 +1,144 @@
-.delinternet_menu_container {
-    padding: 1rem; 
-    background-color: black;
-    border-radius: 1rem;
+/* 
+    Widget Styles
+    Widget Name:       Navbar
+    Author:            Jose Aburto
+    Author URI:        https://www.linkedin.com/in/jose-aburto/
+*/
+
+/* 
+    TODO:
+    - Work on variables, for use globals one.
+    - Add responsive
+*/
+
+
+.delinternet-man-navbar {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #FFFFFF !important;
+    box-shadow: rgb(108 110 113 / 40%) 0px 10px 22px;
 }
 
-.delinternet_menu {
-    background-color: blue;
-    color: white;
+
+.logo-anchor>.logo-img {
+    height: 100% !important;
 }
 
-.delinternet_menu li {
-    margin: 0 20px;
+.main-del-navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-del-navbar>.left-side {
+    gap: 2rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+
+
+.main-del-navbar li {
     list-style: none;
-    display: inline-block;
 }
 
-.delinternet_menu li a {
-    margin: 0 20px;
-    color: white;
+.main-del-navbar ul,
+.main-del-navbar .menu-anchor {
+    margin: 0;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    color: var(--e-global-color-secondary) !important;
+}
+
+.main-del-menu-ul-container {
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.main-del-menu-ul-container>.main-del-menu-il:hover>svg {
+    color: var(--e-global-color-accent) !important;
+}
+
+.menu-anchor:hover {
+    cursor: pointer;
+    color: var(--e-global-color-accent) !important;
+}
+
+.with-submenu-main-del-menu-il {
+    gap: 5px;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.with-submenu-main-del-menu-il:hover>ul {
+    display: block;
+
+}
+
+.with-submenu-main-del-menu-il>ul {
+    display: none;
+    min-width: 10rem;
+    border-radius: 1rem;
+    background-color: #FFF;
+    box-shadow: rgb(108 110 113 / 40%) 0px 10px 22px;
+
+    z-index: 10;
+    bottom: 10%;
+    padding: 1rem;
+    position: absolute;
+    transform: translate(0px, 100%);
+}
+
+.with-submenu-main-del-menu-il>ul>li {
+    display: flex;
+    cursor: pointer;
+    padding: 0.4rem;
+    text-wrap: nowrap;
+    border-radius: 0.6rem;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.with-submenu-main-del-menu-il>ul>li:hover {
+    color: var(--e-global-color-accent) !important;
+}
+
+.with-submenu-main-del-menu-il>ul>li:hover>.menu-anchor {
+    color: var(--e-global-color-accent) !important;
+}
+
+
+/*  */
+
+
+.main-del-navbar>.right-side {
+    display: flex;
+    gap: 2rem;
+    width: fit-content;
+    align-items: center;
+}
+
+.main-del-navbar>.right-side a,
+.main-del-navbar>.right-side button {
+    text-wrap: nowrap;
+}
+
+.main-del-navbar>.right-side button {
+    padding: .8rem 1rem;
+    border-radius: 6rem;
+    font-weight: 400;
+    color: var(--e-global-color-text) !important;
+    background-color: var(--e-global-color-primary) !important;
+}
+
+.main-del-navbar>.right-side button:hover {
+    color: #FFF !important;
+    background-color: var(--e-global-color-accent) !important;
 }
