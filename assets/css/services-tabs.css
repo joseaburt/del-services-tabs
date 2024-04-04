@@ -125,7 +125,7 @@
 .header-title {
   font-weight: 600 !important;
   font-size: 1.25rem !important;
-  font-size: "Open Sans", sans-serif !important;
+  font-family: "Open Sans", sans-serif;
 }
 
 /* =============================================== */

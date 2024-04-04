@@ -41,20 +41,42 @@ class DelinternetServiceTabWidget extends Widget_Base
         return ['delinternet'];
     }
 
+
+    public function _register_controlsX()
+    {
+    }
+
     public function _register_controls()
     {
-
-        // Card Type
         $this->start_controls_section(
-            'card_type_section',
+            'TabSections',
             [
-                'label' => __('Card Type', 'my-elementor-widget'),
+                'label' => __('TabSections', 'my-elementor-widget'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
 
-        // Title
-        $this->add_control(
+
+        $mainRepeater = new \Elementor\Repeater();
+
+
+        $mainRepeater->add_control(
+            'tab_title',
+            [
+                'label' => __('Tab Title', 'plugin-domain'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => __('Pricing Title', 'plugin-domain'),
+                'label_block' => true,
+                'placeholder' => __('Type your title here', 'plugin-domain'),
+            ]
+        );
+
+
+        $tabServicesCardsRepeater = new \Elementor\Repeater();
+
+
+        // Card Theme
+        $tabServicesCardsRepeater->add_control(
             'card_type',
             [
                 'label' => __('Card Type', 'plugin-domain'),
@@ -70,28 +92,9 @@ class DelinternetServiceTabWidget extends Widget_Base
             ]
         );
 
-
-        $this->end_controls_section();
-
-
-
-
-
-
-
-
-        // Header Settings
-        $this->start_controls_section(
-            'header_section',
-            [
-                'label' => __('Header', 'my-elementor-widget'),
-                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
-            ]
-        );
-
-        // Title
-        $this->add_control(
-            'header_title',
+        // Card Title
+        $tabServicesCardsRepeater->add_control(
+            'card_title',
             [
                 'label' => __('Title', 'plugin-domain'),
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -101,38 +104,10 @@ class DelinternetServiceTabWidget extends Widget_Base
             ]
         );
 
+        // Card Price
 
 
-
-
-        // Show Badge
-        $this->add_control(
-            'show_badge',
-            [
-                'label' => __('Show Badge', 'plugin-domain'),
-                'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => __('Show', 'your-plugin'),
-                'label_off' => __('Hide', 'your-plugin'),
-                'return_value' => 'yes',
-                'default' => 'yes',
-            ]
-        );
-
-
-
-        $this->end_controls_section();
-
-        // Price Settings
-        $this->start_controls_section(
-            'price_section',
-            [
-                'label' => __('Pricing', 'my-elementor-widget'),
-                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
-            ]
-        );
-
-
-        $this->add_control(
+        $tabServicesCardsRepeater->add_control(
             'show_prices',
             [
                 'label' => __('Show Prices', 'plugin-domain'),
@@ -145,10 +120,7 @@ class DelinternetServiceTabWidget extends Widget_Base
         );
 
 
-
-
-
-        $this->add_control(
+        $tabServicesCardsRepeater->add_control(
             'custom_price_value',
             [
                 'label' => __('Text instead prices', 'plugin-domain'),
@@ -162,16 +134,12 @@ class DelinternetServiceTabWidget extends Widget_Base
             ]
         );
 
-
-
-
-        // Previous Pack Price
-        $this->add_control(
+        $tabServicesCardsRepeater->add_control(
             'previous_price',
             [
                 'label' => __('Previous Price', 'plugin-domain'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('$20.99', 'plugin-domain'),
+                'default' => __('20.99', 'plugin-domain'),
                 'label_block' => true,
                 'placeholder' => __('Type your price here', 'plugin-domain'),
                 'condition' => [
@@ -180,17 +148,12 @@ class DelinternetServiceTabWidget extends Widget_Base
             ]
         );
 
-        // New Pack Price
-
-
-
-
-        $this->add_control(
+        $tabServicesCardsRepeater->add_control(
             'new_price',
             [
                 'label' => __('New Price', 'plugin-domain'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('year', 'plugin-domain'),
+                'default' => __('12.45', 'plugin-domain'),
                 'label_block' => true,
                 'placeholder' => __('Type your new price here', 'plugin-domain'),
                 'condition' => [
@@ -199,7 +162,7 @@ class DelinternetServiceTabWidget extends Widget_Base
             ]
         );
 
-        $this->add_control(
+        $tabServicesCardsRepeater->add_control(
             'price_details',
             [
                 'label' => __('Price Details', 'plugin-domain'),
@@ -212,22 +175,9 @@ class DelinternetServiceTabWidget extends Widget_Base
 
 
 
+        $cardFeaturesRepeater = new \Elementor\Repeater();
 
-        $this->end_controls_section();
-
-        // Listing Settings
-        $this->start_controls_section(
-            'listing_section',
-            [
-                'label' => __('Listing', 'my-elementor-widget'),
-                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
-            ]
-        );
-
-
-        $repeater = new \Elementor\Repeater();
-
-        $repeater->add_control(
+        $cardFeaturesRepeater->add_control(
             'feature_text',
             [
                 'label' => __('Feature Text', 'plugin-domain'),
@@ -237,24 +187,15 @@ class DelinternetServiceTabWidget extends Widget_Base
             ]
         );
 
-        $repeater->add_control(
-            'feature_icon',
-            [
-                'label' => __('Feature Icon', 'text-domain'),
-                'type' => \Elementor\Controls_Manager::ICONS,
-                'default' => [
-                    'value' => 'fas fa-check',
-                    'library' => 'solid',
-                ],
-            ]
-        );
 
-        $this->add_control(
+
+
+        $tabServicesCardsRepeater->add_control(
             'list',
             [
-                'label' => __('Repeater List', 'plugin-domain'),
+                'label' => __('Card Features List', 'plugin-domain'),
                 'type' => \Elementor\Controls_Manager::REPEATER,
-                'fields' => $repeater->get_controls(),
+                'fields' => $cardFeaturesRepeater->get_controls(),
                 'default' => [
                     [
                         'feature_text' => __('upto 5 users', 'plugin-domain'),
@@ -273,66 +214,57 @@ class DelinternetServiceTabWidget extends Widget_Base
             ]
         );
 
-        $this->end_controls_section();
-
-
-
-        // Button Settings
-        $this->start_controls_section(
-            'button_section',
-            [
-                'label' => __('Button', 'my-elementor-widget'),
-                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
-            ]
-        );
-
-
-
-        $this->add_control(
+        $tabServicesCardsRepeater->add_control(
             'button_text',
             [
+                'label_block' => true,
                 'label' => __('Button Text', 'plugin-domain'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => __('Llámanos', 'plugin-domain'),
-                'label_block' => true,
             ]
         );
+
+        $tabServicesCardsRepeater->add_control(
+            'button_link',
+            [
+                'label_block' => true,
+                'dynamic' => ['active' => true],
+                'default' => __('#', 'plugin-domain'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'label' => __('Button Link', 'plugin-domain'),
+            ]
+        );
+
+
+
+        $mainRepeater->add_control(
+            'tab_service_cards',
+            [
+                'default' => [],
+                'label' => __('Service Card', 'plugin-domain'),
+                'type' => \Elementor\Controls_Manager::REPEATER,
+                'fields' => $tabServicesCardsRepeater->get_controls(),
+            ]
+        );
+
 
 
         $this->add_control(
-            'button_link',
+            'services',
             [
-                'label' => __('Button Link', 'plugin-domain'),
-                'type' => \Elementor\Controls_Manager::TEXT,
-                'dynamic' => [
-                    'active' => true,
-                ],
-                'label_block' => true,
-                'default' => __('#', 'plugin-domain'),
+                'default' => [],
+                'fields' => $mainRepeater->get_controls(),
+                'label' => __('Services', 'plugin-domain'),
+                'type' => \Elementor\Controls_Manager::REPEATER,
             ]
         );
-
-        $this->add_group_control(
-            \Elementor\Group_Control_Background::get_type(),
-            [
-                'name' => 'background',
-                'types' => ['classic', 'gradient', 'video'],
-                'selector' => '{{WRAPPER}} .your-class',
-            ]
-        );
-
 
 
 
         $this->end_controls_section();
-
-        // Style Tab
-        $this->style_tab();
     }
 
-    private function style_tab()
-    {
-    }
+
 
     public function get_style_depends()
     {
@@ -353,82 +285,89 @@ class DelinternetServiceTabWidget extends Widget_Base
     {
         $settings = $this->get_settings_for_display();
 
-
-
+        $services = $settings['services'];
 ?>
         <div class="del-service-tabs-widget-container">
             <div id="del-service-tabs-container-id" class="del-service-tabs-container">
-                <button data-tab-id="1" id="service-tab-1" class="tab-btn active-tab">Fibra y movil</button>
-                <button data-tab-id="2" id="service-tab-2" class="tab-btn">Solo movil</button>
-                <button data-tab-id="3" id="service-tab-3" class="tab-btn">Solo Fibra</button>
+                <?php
+                $tabCounter = 0;
+                foreach ($services as $tab) :
+                    $tabCounter++;
+                ?>
+                    <button data-tab-id="<?php echo  $tabCounter; ?>" id="service-tab-<?php echo  $tabCounter; ?>" class="tab-btn">
+                        <?php echo  $tab['tab_title']; ?>
+                    </button>
+                <?php endforeach; ?>
             </div>
             <div id="del-service-content-sections-container-id" class="del-service-content-sections-container">
-                <section data-tab-content-id="1" id="service-tab-content-1" class="">
-                    <div class="service-pack-card_<?php echo $settings['card_type']; ?>_theme">
-                        <div class="service-pack-card-container">
-                            <div class="service-pack-card-inner-container">
-
-                                <div class="service-pack-card-header">
-                                    <h2 class="header-title"><?php echo $settings['header_title']; ?></h2>
-                                </div>
-
-                                <div class="service-pack-card-price">
-
-                                    <?php if ('yes' == $settings['show_prices']) : ?>
-                                        <div class="service-pack-card-price-amounts">
-                                            <div class="previous_price">
-                                                <small>€</small>
-                                                <del class="amount">
-                                                    <?php echo $settings['previous_price']; ?>
-                                                </del>
+                <?php
+                $tabCounterSection = 0;
+                foreach ($services as $tab) :
+                    $tabCounterSection++;
+                ?>
+                    <section data-tab-content-id="<?php echo  $tabCounterSection; ?>" id="service-tab-content-<?php echo  $tabCounterSection; ?>" class="">
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                            <?php foreach ($tab['tab_service_cards'] as $card_props) : ?>
+                                <div class="service-pack-card_<?php echo $card_props['card_type']; ?>_theme">
+                                    <div class="service-pack-card-container">
+                                        <div class="service-pack-card-inner-container">
+                                            <div class="service-pack-card-header">
+                                                <h2 class="header-title"><?php echo $card_props['card_title']; ?></h2>
                                             </div>
-                                            <div class="new_price">
-                                                <small>€</small>
-                                                <span class="amount">
-                                                    <?php echo $settings['new_price']; ?>
-                                                </span>
+                                            <div class="service-pack-card-price">
+                                                <?php if ('yes' == $card_props['show_prices']) : ?>
+                                                    <div class="service-pack-card-price-amounts">
+                                                        <div class="previous_price">
+                                                            <small>€</small>
+                                                            <del class="amount">
+                                                                <?php echo $card_props['previous_price']; ?>
+                                                            </del>
+                                                        </div>
+                                                        <div class="new_price">
+                                                            <small>€</small>
+                                                            <span class="amount">
+                                                                <?php echo $card_props['new_price']; ?>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                <?php endif; ?>
+                                                <?php if ('yes' != $card_props['show_prices']) : ?>
+                                                    <span class="custom_price_value">
+                                                        <?php echo $card_props['custom_price_value']; ?>
+                                                    </span>
+                                                <?php endif; ?>
+                                                <p class="price_details">
+                                                    <?php echo $card_props['price_details']; ?>
+                                                </p>
+                                            </div>
+                                            <div class="divider">
+                                                <hr>
+                                            </div>
+                                            <div class="service-pack-card-features">
+                                                <?php foreach ($card_props['list'] as $item) : ?>
+                                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                                        <span style="color: var(--e-global-color-primary);">
+                                                            <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9">
+                                                                <path d="M301.439,37.44,296.5,42.379l-1.939-1.939a1.5,1.5,0,1,0-2.121,2.121l3,3a1.5,1.5,0,0,0,2.121,0l6-6a1.5,1.5,0,0,0-2.121-2.121Z" transform="translate(-292 -37)"></path>
+                                                            </svg>
+                                                        </span>
+                                                        <?php echo $item['feature_text']; ?>
+                                                    </div>
+                                                <?php endforeach; ?>
+                                            </div>
+                                            <div class="service-pack-card-action" style="background: <?php $card_props['background_background']; ?>">
+                                                <a href="<?php echo $card_props['button_link']; ?>" class="button-pricing-action">
+                                                    <?php echo $card_props['button_text']; ?>
+                                                </a>
                                             </div>
                                         </div>
-                                    <?php endif; ?>
-
-
-                                    <?php if ('yes' != $settings['show_prices']) : ?>
-                                        <span class="custom_price_value">
-                                            <?php echo $settings['custom_price_value']; ?>
-                                        </span>
-                                    <?php endif; ?>
-
-
-                                    <p class="price_details">
-                                        <?php echo $settings['price_details']; ?>
-                                    </p>
+                                    </div>
                                 </div>
-                                <div class="divider">
-                                    <hr>
-                                </div>
-                                <div class="service-pack-card-features">
-                                    <?php foreach ($settings['list'] as $item) : ?>
-                                        <div><?php \Elementor\Icons_Manager::render_icon($item['feature_icon'], ['aria-hidden' => 'true']); ?> <?php echo $item['feature_text']; ?></div>
-                                    <?php endforeach; ?>
-                                </div>
-                                <div class="service-pack-card-action" style="background: <?php $settings['background_background']; ?>">
-                                    <a href="<?php echo $settings['button_link']; ?>" class="button-pricing-action">
-                                        <?php echo $settings['button_text']; ?>
-                                    </a>
-                                </div>
-                            </div>
+                            <?php endforeach; ?>
                         </div>
-                    </div>
-                </section>
-                <section data-tab-content-id="2" id="service-tab-content-2" class="">
-                    Tab Content #2
-                </section>
-                <section data-tab-content-id="3" id="service-tab-content-3" class="">
-                    Tab Content #3
-                </section>
+                    </section>
+                <?php endforeach; ?>
             </div>
-
-
         </div>
 <?php
     }
