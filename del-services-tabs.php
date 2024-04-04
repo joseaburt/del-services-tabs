@@ -22,6 +22,7 @@ use Delinternet\Plugins\Widgets\RelatedPostsWidget;
 use Delinternet\Plugins\Widgets\AccordionWidget;
 use Delinternet\Plugins\Widgets\DecoratedHeadingWidget;
 use Delinternet\Plugins\Widgets\QuestionsTabWidget;
+use Delinternet\Plugins\Widgets\ReviewsWidget;
 
 if (!defined('ABSPATH')) {
     exit;
@@ -88,6 +89,10 @@ final class DelServicesTabsWidget
 
         require_once __DIR__ . '/widgets/decorated-heading.php';
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new DecoratedHeadingWidget());
+
+
+        require_once __DIR__ . '/widgets/reviews-widget.php';
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new ReviewsWidget());
     }
 
     public function create_new_category($elements_manager)
