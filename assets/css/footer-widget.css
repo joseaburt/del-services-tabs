@@ -1,11 +1,113 @@
-
-    /* 
+/* 
     Widget Styles
     Widget Name:       FooterWidget
     Author:            Jose Aburto
     Author URI:        https://www.linkedin.com/in/jose-aburto/
 */
-.del-footer-widget {}
-#del-footer-widget-id {}
+.del-footer-widget {
+    display: flex;
+    gap: 2rem;
+    color: #FFF !important;
+    justify-content: space-between;
+}
+
+.del-footer-widget ul {
+    margin: 0;
+}
+
+.del-footer-widget li {
+    list-style: none;
+
+}
+
+.del-footer-widget li>a,
+.del-footer-widget p,
+.del-footer-widget strong,
+.del-footer-widget span {
+    font-size: 0.875rem !important;
+    list-style: none;
+    color: #c3c6c9 !important
+}
+
+.del-footer-widget h6 {
+    padding-left: 6px;
+    color: #FFF !important;
+    text-transform: capitalize;
+    font-family: 'Open Sans', sans-serif;
+    border-left: 5px solid var(--e-global-color-primary);
+}
 
 
+.del-footer-services-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.del-footer-services-container>li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.del-footer-services-container>li>ul>li>a {
+    text-wrap: nowrap !important;
+}
+
+.footer-social-medias-container,
+.del-footer-address-container {
+    max-width: 350px !important;
+}
+
+
+.footer-social-medias-container {
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.footer-social-medias {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.footer-social-medias>a {
+    padding: 0px !important;
+    margin: 0px !important;
+    border-radius: 5rem;
+    color: #FFF !important;
+}
+
+.footer-social-medias>a:hover {
+    color: var(--e-global-color-primary) !important;
+}
+
+/* Subscrition Form */
+
+.email-input-control {
+    display: flex;
+    border-radius: 1rem;
+    justify-content: space-between;
+    background: rgb(255 255 255 / 5%) !important;
+}
+
+.email-input-control>input {
+    width: 100% !important;
+    border: none !important;
+    outline: none !important;
+    border-color: transparent !important;
+    background-color: transparent !important;
+    color: #FFF !important;
+}
+
+.email-input-control>input:focus {
+    outline: none !important;
+}
+
+.email-input-control>input[type="submit"] {
+    background-color: var(--e-global-color-primary) !important;
+    width: fit-content !important;
+    border-radius: 1rem !important;
+    padding: 0.8rem 1rem !important;
+}

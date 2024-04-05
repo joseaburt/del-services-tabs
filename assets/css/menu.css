@@ -45,7 +45,7 @@
 .main-del-navbar ul,
 .main-del-navbar .menu-anchor {
     margin: 0;
-    font-size: 1rem;
+    font-size: 0.875rem !important;
     font-style: normal;
     font-weight: 400;
     font-family: 'Open Sans', sans-serif;
@@ -134,6 +134,7 @@
     padding: .8rem 1rem;
     border-radius: 6rem;
     font-weight: 400;
+    font-size: 0.875rem !important;
     color: var(--e-global-color-text) !important;
     background-color: var(--e-global-color-primary) !important;
 }
