@@ -1,5 +1,4 @@
-"use strict";
-/*
+/* 
     Widget Script
     Widget Name:       Menu
     Author:            Jose Aburto

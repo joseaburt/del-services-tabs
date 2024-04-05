@@ -22,6 +22,9 @@ class DecoratedHeadingWidget extends Widget_Base
 
     protected function init_scripts()
     {
+        wp_enqueue_style('delinternet-event-bus-js', plugin_dir_url(__FILE__) . '../assets/css/event-bus.js');
+        wp_enqueue_script('delinternet-base-widget-js', plugin_dir_url(__FILE__) . '../assets/js/base-widget.js');
+        wp_enqueue_script('delinternet-utils-js', plugin_dir_url(__FILE__) . '../assets/js/utils.js');
         wp_enqueue_script('del-decorated-heading-js', plugin_dir_url(__FILE__) . '../assets/js/decorated-heading.js');
         wp_enqueue_style('del-decorated-heading-css', plugin_dir_url(__FILE__) . '../assets/css/decorated-heading.css');
     }
