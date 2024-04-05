@@ -5,11 +5,12 @@
     Author URI:        https://www.linkedin.com/in/jose-aburto/
 */
 
-class ReviewsWidget implements BaseWidget {
-    public render(): void {
-        const rootContainer = WidgetUtils.getDivById("del-reviews-widget-root");
-        if (!rootContainer) return;
+class ReviewsWidget extends BaseWidget {
+    public getContainerId(): string {
+        return "del-reviews-widget-root";
+    }
 
+    public render(): void {
         const cardContainer = WidgetUtils.getDivById("reviews-cards");
         const headerContainerScroll = WidgetUtils.useScrollAnimationFrame(cardContainer);
 

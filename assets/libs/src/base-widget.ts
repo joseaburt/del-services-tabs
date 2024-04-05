@@ -6,14 +6,17 @@
 */
 
 
-interface BaseWidget {
-    render(): void;
+abstract class BaseWidget {
+    public abstract render(): void;
+    public abstract getContainerId(): string;
 }
 
 
 class WidgetDOM {
     public static render(widget: BaseWidget): void {
         document.addEventListener("DOMContentLoaded", () => {
+            const rootContainer = WidgetUtils.getDivById(widget.getContainerId());
+            if (!rootContainer) return;
             widget.render();
         });
     }

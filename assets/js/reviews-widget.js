@@ -5,11 +5,11 @@
     Author:            Jose Aburto
     Author URI:        https://www.linkedin.com/in/jose-aburto/
 */
-class ReviewsWidget {
+class ReviewsWidget extends BaseWidget {
+    getContainerId() {
+        return "del-reviews-widget-root";
+    }
     render() {
-        const rootContainer = WidgetUtils.getDivById("del-reviews-widget-root");
-        if (!rootContainer)
-            return;
         const cardContainer = WidgetUtils.getDivById("reviews-cards");
         const headerContainerScroll = WidgetUtils.useScrollAnimationFrame(cardContainer);
         const firstReviewCard = document.querySelector('.review-card:first-child');

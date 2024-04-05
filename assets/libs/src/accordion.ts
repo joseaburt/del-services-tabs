@@ -6,7 +6,11 @@
 */
 
 
-class AccordionWidget implements BaseWidget {
+class AccordionWidget extends BaseWidget {
+    public getContainerId(): string {
+        return "accordion-container";
+    }
+
     public render(): void {
         const container = document.getElementById('accordion-container');
         if (!container) return

@@ -5,7 +5,10 @@
     Author:            Jose Aburto
     Author URI:        https://www.linkedin.com/in/jose-aburto/
 */
-class AccordionWidget {
+class AccordionWidget extends BaseWidget {
+    getContainerId() {
+        return "accordion-container";
+    }
     render() {
         const container = document.getElementById('accordion-container');
         if (!container)

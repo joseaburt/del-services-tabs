@@ -5,8 +5,12 @@
     Author:            Jose Aburto
     Author URI:        https://www.linkedin.com/in/jose-aburto/
 */
-class QuestionsTabWidget {
-    useTabContent(container) {
+class QuestionsTabWidget extends BaseWidget {
+    getContainerId() {
+        return "questions-tab-container";
+    }
+    useTabContent() {
+        const container = WidgetUtils.getDivById("questions-tab-container");
         const selectedTabId = WidgetUtils.getAttribute(container, "data-selectedTabId", "0");
         const contents = container.querySelectorAll(".questions-tab-tab-content");
         return {
@@ -78,12 +82,9 @@ class QuestionsTabWidget {
         return { prevButton, nextButton };
     }
     render() {
-        const rootContainer = document.getElementById("questions-tab-container");
-        if (!rootContainer)
-            return;
-        const contentTab = this.useTabContent(rootContainer);
-        const indicator = WidgetUtils.useIndicator(WidgetUtils.getDivById("tabs-indicator"));
+        const contentTab = this.useTabContent();
         const headerContainer = WidgetUtils.getDivById("questions-tab-header");
+        const indicator = WidgetUtils.useIndicator(WidgetUtils.getDivById("tabs-indicator"));
         const items = headerContainer.querySelectorAll("li.questions-tab-item");
         let sumOfAllButtonWidth = 0;
         let selectedItem;

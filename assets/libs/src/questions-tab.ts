@@ -7,9 +7,13 @@
 
 
 
-class QuestionsTabWidget implements BaseWidget {
+class QuestionsTabWidget extends BaseWidget {
+    public getContainerId(): string {
+        return "questions-tab-container";
+    }
 
-    private useTabContent(container: HTMLDivElement) {
+    private useTabContent() {
+        const container = WidgetUtils.getDivById("questions-tab-container");
         const selectedTabId = WidgetUtils.getAttribute(container, "data-selectedTabId", "0");
         const contents = container.querySelectorAll<HTMLElement>(".questions-tab-tab-content");
 
@@ -90,12 +94,9 @@ class QuestionsTabWidget implements BaseWidget {
 
 
     public render(): void {
-        const rootContainer = document.getElementById("questions-tab-container") as HTMLDivElement;
-        if (!rootContainer) return;
-
-        const contentTab = this.useTabContent(rootContainer);
-        const indicator = WidgetUtils.useIndicator(WidgetUtils.getDivById("tabs-indicator"));
+        const contentTab = this.useTabContent();
         const headerContainer = WidgetUtils.getDivById("questions-tab-header");
+        const indicator = WidgetUtils.useIndicator(WidgetUtils.getDivById("tabs-indicator"));
         const items = headerContainer.querySelectorAll<HTMLElement>("li.questions-tab-item");
 
         let sumOfAllButtonWidth: number = 0;
