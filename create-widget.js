@@ -113,7 +113,7 @@ if (!fs.existsSync(path.join(__dirname, "./assets/libs/src", `${filename}.ts`)))
 
 class  ${widgetClassName} extends BaseWidget {
     public getContainerId(): string {
-        throw new Error("Widget component is not implemented ok.");
+        return "del-${filename}";
     }
 
     public render(): void {}
