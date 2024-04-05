@@ -6,8 +6,7 @@
     Author URI:        https://www.linkedin.com/in/jose-aburto/
 */
 class QuestionsTabWidget {
-    useTabContent() {
-        const container = WidgetUtils.getDivById("questions-tab-container");
+    useTabContent(container) {
         const selectedTabId = WidgetUtils.getAttribute(container, "data-selectedTabId", "0");
         const contents = container.querySelectorAll(".questions-tab-tab-content");
         return {
@@ -79,7 +78,10 @@ class QuestionsTabWidget {
         return { prevButton, nextButton };
     }
     render() {
-        const contentTab = this.useTabContent();
+        const rootContainer = document.getElementById("questions-tab-container");
+        if (!rootContainer)
+            return;
+        const contentTab = this.useTabContent(rootContainer);
         const indicator = WidgetUtils.useIndicator(WidgetUtils.getDivById("tabs-indicator"));
         const headerContainer = WidgetUtils.getDivById("questions-tab-header");
         const items = headerContainer.querySelectorAll("li.questions-tab-item");

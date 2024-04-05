@@ -9,8 +9,7 @@
 
 class QuestionsTabWidget implements BaseWidget {
 
-    private useTabContent() {
-        const container = WidgetUtils.getDivById("questions-tab-container");
+    private useTabContent(container: HTMLDivElement) {
         const selectedTabId = WidgetUtils.getAttribute(container, "data-selectedTabId", "0");
         const contents = container.querySelectorAll<HTMLElement>(".questions-tab-tab-content");
 
@@ -91,7 +90,10 @@ class QuestionsTabWidget implements BaseWidget {
 
 
     public render(): void {
-        const contentTab = this.useTabContent();
+        const rootContainer = document.getElementById("questions-tab-container") as HTMLDivElement;
+        if (!rootContainer) return;
+
+        const contentTab = this.useTabContent(rootContainer);
         const indicator = WidgetUtils.useIndicator(WidgetUtils.getDivById("tabs-indicator"));
         const headerContainer = WidgetUtils.getDivById("questions-tab-header");
         const items = headerContainer.querySelectorAll<HTMLElement>("li.questions-tab-item");

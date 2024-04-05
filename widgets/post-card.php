@@ -29,9 +29,10 @@ class DelPostCardWidget extends Widget_Base
 
     protected function init_scripts()
     {
-        wp_enqueue_style('delinternet-event-bus-js', plugin_dir_url(__FILE__) . '../assets/css/event-bus.js');
+        wp_enqueue_script('delinternet-event-bus-js', plugin_dir_url(__FILE__) . '../assets/js/event-bus.js');
         wp_enqueue_script('delinternet-base-widget-js', plugin_dir_url(__FILE__) . '../assets/js/base-widget.js');
         wp_enqueue_script('delinternet-utils-js', plugin_dir_url(__FILE__) . '../assets/js/utils.js');
+
         wp_enqueue_script('delinternet-post-card-js', plugin_dir_url(__FILE__) . '../assets/js/post-card.js');
         wp_enqueue_style('delinternet-post-card-css', plugin_dir_url(__FILE__) . '../assets/css/post-card.css');
     }
