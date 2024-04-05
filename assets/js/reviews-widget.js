@@ -7,8 +7,17 @@
 */
 class ReviewsWidget {
     render() {
+        const rootContainer = WidgetUtils.getDivById("del-reviews-widget-root");
+        if (!rootContainer)
+            return;
         const cardContainer = WidgetUtils.getDivById("reviews-cards");
-        cardContainer.scrollLeft = 0;
+        const headerContainerScroll = WidgetUtils.useScrollAnimationFrame(cardContainer);
+        const firstReviewCard = document.querySelector('.review-card:first-child');
+        const lastReviewCard = document.querySelector('.review-card:last-child');
+        WidgetUtils.getButtonById("prev-review-button").addEventListener("click", () => headerContainerScroll.goToLeft());
+        WidgetUtils.getButtonById("next-review-button").addEventListener("click", () => headerContainerScroll.goToRight());
+        WidgetUtils.fromButton(WidgetUtils.getButtonById("prev-review-button")).disableItIfGivenElementIsVisible(firstReviewCard);
+        WidgetUtils.fromButton(WidgetUtils.getButtonById("next-review-button")).disableItIfGivenElementIsVisible(lastReviewCard);
     }
 }
 WidgetDOM.render(new ReviewsWidget());

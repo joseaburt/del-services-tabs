@@ -121,7 +121,7 @@ class ReviewsWidget extends Widget_Base
         $settings = $this->get_settings_for_display();
         $reviews = $settings['reviews'];
 ?>
-        <div class="del-reviews-widget">
+        <div class="del-reviews-widget" id="del-reviews-widget-root">
             <div class="cards-container" id="reviews-cards">
                 <?php foreach ($reviews as $review) : ?>
                     <div class="review-card">
@@ -155,14 +155,14 @@ class ReviewsWidget extends Widget_Base
                 <?php endforeach; ?>
             </div>
             <div class="controls">
-                <button id="pre-button">
+                <button id="prev-review-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-left">
                         <circle cx="12" cy="12" r="10" />
                         <path d="M16 12H8" />
                         <path d="m12 8-4 4 4 4" />
                     </svg>
                 </button>
-                <button id="next-button">
+                <button id="next-review-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-right">
                         <circle cx="12" cy="12" r="10" />
                         <path d="M8 12h8" />

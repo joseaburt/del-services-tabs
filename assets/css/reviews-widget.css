@@ -12,7 +12,6 @@
     display: flex;
     flex-wrap: nowrap;
     overflow: hidden;
-    justify-content: center;
     padding: 1rem 0rem;
 }
 
@@ -63,6 +62,14 @@
     border-radius: 5rem;
     color: var(--e-global-color-primary) !important;
     font-size: 2rem !important;
+}
+
+.del-reviews-widget>.controls>button:disabled {
+    color: #9d9fa3 !important;
+}
+
+.del-reviews-widget>.controls>button:disabled:hover {
+    color: #9d9fa3 !important;
 }
 
 .del-reviews-widget>.controls>button>svg {

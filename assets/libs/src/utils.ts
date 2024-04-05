@@ -45,12 +45,26 @@ class WidgetUtils {
                 }
                 requestAnimationFrame(updateScroll);
             },
+            goToRight: function () {
+                const startScroll = container.scrollLeft;
+                let targetScroll = container.scrollLeft + container.offsetWidth / 2;
+                this.perform(startScroll, targetScroll - startScroll);
+            },
+            goToLeft: function () {
+                const startScroll = container.scrollLeft;
+                let targetScroll = container.scrollLeft - container.offsetWidth / 2;
+                this.perform(startScroll, targetScroll - startScroll);
+            },
         };
     }
 
 
     public static getButtonById(id: string): HTMLButtonElement {
         return document.getElementById(id) as HTMLButtonElement
+    }
+
+    public static queryButtonSelector(selector: string): HTMLButtonElement {
+        return document.querySelector(selector) as HTMLButtonElement
     }
 
     public static getDivById(id: string): HTMLDivElement {
@@ -78,7 +92,7 @@ class WidgetUtils {
             },
             disableItIfGivenElementIsVisible: (givenElement: HTMLElement) => {
                 this.isElementVisible(givenElement, (isVisible) => {
-                    element.disabled = !isVisible;
+                    element.disabled = isVisible
                     element.style.opacity = isVisible ? "0.5" : "1";
                     element.style.cursor = isVisible ? "not-allowed" : "pointer";
                 });
