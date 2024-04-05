@@ -29,6 +29,11 @@
     color: #c3c6c9 !important
 }
 
+
+.del-footer-widget li>a:hover {
+    color: var(--e-global-color-primary) !important
+}
+
 .del-footer-widget h6 {
     padding-left: 6px;
     color: #FFF !important;

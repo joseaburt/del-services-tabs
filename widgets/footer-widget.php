@@ -126,7 +126,7 @@ class FooterWidget extends Widget_Base
             'contact_phone_number',
             [
                 'label' => __('Phone Number', 'plugin-domain'),
-                'type' => \Elementor\Controls_Manager::TEXT,
+                'type' => \Elementor\Controls_Manager::WYSIWYG,
                 'default' => __('', 'plugin-domain'),
                 'label_block' => true,
 
@@ -187,19 +187,16 @@ class FooterWidget extends Widget_Base
 
 
 
-
-
-
     protected function render()
     {
         $settings = $this->get_settings_for_display();
-
 
         $services_groups = $settings['services_groups'];
         $contact_address = $settings['contact_address'];
         $contact_phone_number = $settings['contact_phone_number'];
         $subscrition_description = $settings['subscrition_description'];
         $social_media_list = $settings['social_media_list'];
+
 ?>
         <div class="del-footer-widget" id="del-footer-widget-id">
             <ul class="del-footer-services-container">
@@ -228,12 +225,14 @@ class FooterWidget extends Widget_Base
                                 <li style="display: flex; gap: 10px;">
                                     <?php echo $contact_address; ?>
                                 </li>
+                                <li style="display: flex; gap: 10px;">
+                                    <?php echo $contact_phone_number; ?>
+                                </li>
                             </ul>
                     </div>
                 </li>
 
             </ul>
-
             <div class="footer-social-medias-container">
                 <div>
                     <h6>
