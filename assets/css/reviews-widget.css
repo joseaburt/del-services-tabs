@@ -6,12 +6,23 @@
     justify-content: center;
 }
 
-.del-reviews-widget>.review-card {
+.del-reviews-widget>.cards-container {
+    gap: 1rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    justify-content: center;
+    padding: 1rem 0rem;
+}
+
+
+.del-reviews-widget>.cards-container>.review-card {
     gap: 0.5rem;
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    min-width: 320px;
+    min-width: 380px;
     max-width: 380px;
     min-height: 300px;
     border-radius: 20px;
@@ -20,20 +31,45 @@
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15) !important;
 }
 
-.del-reviews-widget>.review-card:hover {
+.del-reviews-widget>.cards-container>.review-card:hover {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15) !important;
 }
 
-.del-reviews-widget>.review-card>.review-card-title {
+.del-reviews-widget>.cards-container>.review-card>.review-card-title {
     font-size: 'Open Sans', sans-serif;
 }
 
-.del-reviews-widget>.review-card>.review-card-stars {
+.del-reviews-widget>.cards-container>.review-card>.review-card-header {
+    gap: 5px;
+    display: flex;
+    align-items: center;
     margin-bottom: 0.4rem;
 }
 
-.del-reviews-widget>.review-card>.review-card-stars>svg {
+.del-reviews-widget>.cards-container>.review-card>.review-card-header>.review-card-stars>svg {
     width: 16px !important;
     height: 16px !important;
     fill: var(--wp--preset--color--luminous-vivid-amber) !important;
+}
+
+.del-reviews-widget>.controls {
+    display: flex;
+    gap: 1;
+}
+
+.del-reviews-widget>.controls>button {
+    padding: 0.4rem !important;
+    background-color: transparent !important;
+    border-radius: 5rem;
+    color: var(--e-global-color-primary) !important;
+    font-size: 2rem !important;
+}
+
+.del-reviews-widget>.controls>button>svg {
+    width: 34px;
+    height: 34px;
+}
+
+.del-reviews-widget>.controls>button:hover {
+    color: var(--e-global-color-accent) !important;
 }
