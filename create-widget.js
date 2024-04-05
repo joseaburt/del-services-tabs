@@ -34,6 +34,10 @@ class {{widgetname}} extends Widget_Base
 
     protected function init_scripts()
     {
+        wp_enqueue_script('delinternet-event-bus-js', plugin_dir_url(__FILE__) . '../assets/js/event-bus.js');
+        wp_enqueue_script('delinternet-base-widget-js', plugin_dir_url(__FILE__) . '../assets/js/base-widget.js');
+        wp_enqueue_script('delinternet-utils-js', plugin_dir_url(__FILE__) . '../assets/js/utils.js');
+        
         wp_enqueue_script('del-{{filename}}-js', plugin_dir_url(__FILE__) . '../assets/js/{{filename}}.js');
         wp_enqueue_style('del-{{filename}}-css', plugin_dir_url(__FILE__) . '../assets/css/{{filename}}.css');
     }
@@ -97,12 +101,40 @@ const compiledWidgetCode = widgetCode
 
 fs.writeFileSync(path.join(__dirname, "./widgets", `${filename}.php`), compiledWidgetCode);
 
-if (!fs.existsSync(path.join(__dirname, "./assets/libs/src", `${filename}.js`))) {
-    fs.writeFileSync(path.join(__dirname, "./assets/libs/src", `${filename}.js`), `console.log("Widget Script connected: ${filename.replace(/-/g, '_')}")`);
+if (!fs.existsSync(path.join(__dirname, "./assets/libs/src", `${filename}.ts`))) {
+    fs.writeFileSync(path.join(__dirname, "./assets/libs/src", `${filename}.ts`), `
+/* 
+    Widget Script
+    Widget Name:       ${widgetClassName}
+    Author:            Jose Aburto
+    Author URI:        https://www.linkedin.com/in/jose-aburto/
+*/
+
+
+class  ${widgetClassName} extends BaseWidget {
+    public getContainerId(): string {
+        throw new Error("Widget component is not implemented ok.");
+    }
+
+    public render(): void {}
+}
+
+
+WidgetDOM.render(new ${widgetClassName}());
+    `);
 }
 
 if (!fs.existsSync(path.join(__dirname, "./assets/css", `${filename}.css`))) {
-    fs.writeFileSync(path.join(__dirname, "./assets/css", `${filename}.css`), `.del-${filename} {}`);
+    fs.writeFileSync(path.join(__dirname, "./assets/css", `${filename}.css`), `
+    /* 
+    Widget Styles
+    Widget Name:       ${widgetClassName}
+    Author:            Jose Aburto
+    Author URI:        https://www.linkedin.com/in/jose-aburto/
+*/
+.del-${filename} {}
+
+`);
 }
 
 const registrationInstructions = `
