@@ -21,6 +21,7 @@ use Delinternet\Plugins\Widgets\DelPostCardWidget;
 use Delinternet\Plugins\Widgets\RelatedPostsWidget;
 use Delinternet\Plugins\Widgets\AccordionWidget;
 use Delinternet\Plugins\Widgets\DecoratedHeadingWidget;
+use Delinternet\Plugins\Widgets\FooterWidget;
 use Delinternet\Plugins\Widgets\QuestionsTabWidget;
 use Delinternet\Plugins\Widgets\ReviewsWidget;
 
@@ -93,6 +94,9 @@ final class DelServicesTabsWidget
 
         require_once __DIR__ . '/widgets/reviews-widget.php';
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new ReviewsWidget());
+
+        require_once __DIR__ . '/widgets/footer-widget.php';
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new FooterWidget());
     }
 
     public function create_new_category($elements_manager)
