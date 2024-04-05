@@ -72,6 +72,16 @@ class DecoratedHeadingWidget extends Widget_Base
             ]
         );
 
+        $this->add_control(
+            'color',
+            [
+                'label' => __('Text Color', 'plugin-domain'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => "",
+                'label_block' => true,
+            ]
+        );
+
         $this->end_controls_section();
     }
 
@@ -124,7 +134,7 @@ class DecoratedHeadingWidget extends Widget_Base
                         </linearGradient>
                     </defs>
                 </svg>
-                <h1>
+                <h1 style="color: <?php echo $settings['color']; ?> !important;">
                     <?php echo $settings['text']; ?>
                 </h1>
             </span>
