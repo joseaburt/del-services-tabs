@@ -71,7 +71,7 @@ class {{widgetname}} extends Widget_Base
     {
         $settings = $this->get_settings_for_display();
 ?>
-        <div class="del-{{filename}}">
+        <div class="del-{{filename}}" id="del-{{filename}}-id">
             Code your widget here.
         </div>
 <?php
@@ -133,6 +133,8 @@ if (!fs.existsSync(path.join(__dirname, "./assets/css", `${filename}.css`))) {
     Author URI:        https://www.linkedin.com/in/jose-aburto/
 */
 .del-${filename} {}
+#del-${filename}-id {}
+
 
 `);
 }
