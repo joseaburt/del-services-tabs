@@ -97,8 +97,8 @@ const compiledWidgetCode = widgetCode
 
 fs.writeFileSync(path.join(__dirname, "./widgets", `${filename}.php`), compiledWidgetCode);
 
-if (!fs.existsSync(path.join(__dirname, "./assets/js", `${filename}.js`))) {
-    fs.writeFileSync(path.join(__dirname, "./assets/js", `${filename}.js`), `console.log("Widget Script connected: ${filename.replace(/-/g, '_')}")`);
+if (!fs.existsSync(path.join(__dirname, "./assets/libs/src", `${filename}.js`))) {
+    fs.writeFileSync(path.join(__dirname, "./assets/libs/src", `${filename}.js`), `console.log("Widget Script connected: ${filename.replace(/-/g, '_')}")`);
 }
 
 if (!fs.existsSync(path.join(__dirname, "./assets/css", `${filename}.css`))) {
