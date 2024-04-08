@@ -5,13 +5,6 @@
     Author URI:        https://www.linkedin.com/in/jose-aburto/
 */
 
-/* 
-    TODO:
-    - Work on variables, for use globals one.
-    - Add responsive
-*/
-
-
 .delinternet-man-navbar {
     width: 100%;
     padding: 0.5rem;
@@ -40,8 +33,6 @@
     flex-wrap: nowrap;
 }
 
-
-
 .main-del-navbar li {
     list-style: none;
 }
@@ -49,12 +40,12 @@
 .main-del-navbar ul,
 .main-del-navbar .menu-anchor {
     margin: 0;
-    font-size: 1.6vmin !important;
-    font-style: normal;
     font-weight: 400;
-    font-family: 'Open Sans', sans-serif;
     font-weight: 500;
     text-wrap: nowrap;
+    font-style: normal;
+    font-size: 1.9vmin !important;
+    font-family: 'Open Sans', sans-serif;
     color: var(--e-global-color-secondary) !important;
 }
 
@@ -93,7 +84,6 @@
     border-radius: 1rem;
     background-color: #FFF;
     box-shadow: rgb(108 110 113 / 40%) 0px 10px 22px;
-
     z-index: 10;
     bottom: 10%;
     padding: 1rem;
@@ -119,13 +109,9 @@
     color: var(--e-global-color-accent) !important;
 }
 
-
-/*  */
-
-
 .main-del-navbar>.right-side {
-    display: flex;
     gap: 2rem;
+    display: flex;
     width: fit-content;
     align-items: center;
 }
@@ -151,6 +137,7 @@
 
 
 .shall-we-call-you-icon-button-xs,
+.shall-we-call-you-icon-button-xs-header,
 .main-del-navbar>.right-side button.responsive-menu-icon-button,
 .main-del-navbar>.right-side button.shall-we-call-you-icon-button {
     border-radius: 8px !important;
@@ -158,7 +145,6 @@
     color: var(--e-global-color-text) !important;
     padding: 1rem;
 }
-
 
 .logo-anchor-sx,
 .shall-we-call-you-icon-button-xs {
@@ -172,24 +158,24 @@
 }
 
 .main-del-menu-ul-container-xs-container {
-    position: fixed !important;
     top: 0px;
     left: 0px;
     z-index: 50;
-    height: 100vh;
+    display: none;
     width: 100vw;
-    background-color: #00000057;
+    height: 100vh;
+    position: fixed !important;
+    background-color: #00000093;
 }
 
 .main-del-menu-ul-container-xs-container>.inner-container {
     padding: 1rem;
-    background-color: #EEEFE8 !important;
-    min-width: 80vw !important;
-    max-width: 80vw !important;
+    min-width: 330px !important;
+    max-width: 330px !important;
     min-height: 100% !important;
     max-height: 100% !important;
+    background-color: #EEEFE8 !important;
 }
-
 
 .main-del-menu-ul-container-xs a.menu-anchor,
 .main-del-menu-ul-container-xs p.menu-anchor {
@@ -206,17 +192,13 @@
 }
 
 .main-del-menu-ul-container-xs>.with-submenu-main-del-menu-il>ul {
-    margin-left: 1rem;
-}
-
-.main-del-menu-ul-container-xs>.with-submenu-main-del-menu-il:hover>ul {
-    display: block;
+    margin-left: 2.5rem;
 }
 
 .main-del-menu-ul-container-xs>.with-submenu-main-del-menu-il>ul>li {
     display: flex;
     cursor: pointer;
-    padding: 0.4rem;
+    /* padding: 0.4rem; */
     text-wrap: nowrap;
     border-radius: 0.6rem;
     align-items: flex-start;
@@ -236,6 +218,7 @@
 }
 
 /* MEDIA QUERIES */
+
 
 
 /* Small devices (landscape phones, 576px and up) */
@@ -262,9 +245,6 @@
     }
 }
 
-
-
-
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     .responsive-menu-icon-button {
@@ -281,17 +261,13 @@
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 1124px) {
-    .main-del-menu-ul-container-xs-container {
-        display: none !important;
-    }
-
     .main-del-menu-ul-container {
         display: flex !important;
     }
 
     .main-del-navbar ul,
     .main-del-navbar .menu-anchor {
-        font-size: 1.6vmin !important;
+        font-size: 1.9vmin !important;
     }
 
     .shall-we-call-you-text-button,
@@ -307,17 +283,13 @@
 
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1300px) {
-    .main-del-menu-ul-container-xs-container {
-        display: none !important;
-    }
-
     .main-del-menu-ul-container {
         display: flex !important;
     }
 
     .main-del-navbar ul,
     .main-del-navbar .menu-anchor {
-        font-size: 1.6vmin !important;
+        font-size: 1.9vmin !important;
 
     }
 
@@ -334,9 +306,7 @@
 
 /* XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) {
-    .main-del-menu-ul-container-xs-container {
-        display: none !important;
-    }
+
 
     .main-del-menu-ul-container {
         display: flex !important;
