@@ -44,12 +44,22 @@ final class DelServicesTabsWidget
         add_action('plugins_loaded', [$this, 'init_plugin']);
         add_action('elementor/elements/categories_registered', [$this, 'create_new_category']);
         add_action('elementor/widgets/widgets_registered', [$this, 'init_widgets']);
+        add_action('wp_enqueue_scripts', [$this, 'enqueue_tailwind_css']);
     }
+
+    // wp_enqueue_style('del-reviews-widget-css', plugin_dir_url(__FILE__) . '../assets/css/reviews-widget.css');
 
     public function i18n()
     {
         load_plugin_textdomain("del-plugins");
     }
+
+    function enqueue_tailwind_css()
+    {
+        // Enqueue Tailwind CSS from CDN
+        wp_enqueue_style('tailwind-css', 'https://cdn.jsdelivr.net/npm/tailwindcss@0.7.4/dist/tailwind.min.css');
+    }
+
 
     public function init_controls()
     {
