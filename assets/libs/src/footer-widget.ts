@@ -7,9 +7,9 @@
 */
 
 
-class  FooterWidget extends BaseWidget {
+class FooterWidget extends BaseWidget {
     public getContainerId(): string {
-        return "del-footer-widget";
+        return "del-footer-widget-id";
     }
 
     public render(): void {}
@@ -17,4 +17,3 @@ class  FooterWidget extends BaseWidget {
 
 
 WidgetDOM.render(new FooterWidget());
-    

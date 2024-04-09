@@ -22,9 +22,7 @@ class FooterWidget extends Widget_Base
 
     protected function init_scripts()
     {
-        wp_enqueue_script('delinternet-event-bus-js', plugin_dir_url(__FILE__) . '../assets/js/event-bus.js');
-        wp_enqueue_script('delinternet-base-widget-js', plugin_dir_url(__FILE__) . '../assets/js/base-widget.js');
-        wp_enqueue_script('delinternet-utils-js', plugin_dir_url(__FILE__) . '../assets/js/utils.js');
+        wp_enqueue_script('del-commons-js', plugin_dir_url(__FILE__) . '../assets/js/del-commons.js');
 
         wp_enqueue_script('del-footer-widget-js', plugin_dir_url(__FILE__) . '../assets/js/footer-widget.js');
         wp_enqueue_style('del-footer-widget-css', plugin_dir_url(__FILE__) . '../assets/css/footer-widget.css');
@@ -242,12 +240,14 @@ class FooterWidget extends Widget_Base
                         <?php echo $subscrition_description; ?>
                     </p>
                 </div>
-                <form>
+                <div>
                     <div class="email-input-control">
                         <input type="email" name="" id="" placeholder="Insert Email">
-                        <input type="submit" value="Subscribir">
+                        <button id="subscribe-footer-btn">
+                            Subscribir
+                        </button>
                     </div>
-                </form>
+                </div>
                 <hr>
                 <div class="footer-social-medias">
                     <?php foreach ($social_media_list as $social_media) : ?>

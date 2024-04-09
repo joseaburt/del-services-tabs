@@ -7,7 +7,7 @@
 */
 class FooterWidget extends BaseWidget {
     getContainerId() {
-        return "del-footer-widget";
+        return "del-footer-widget-id";
     }
     render() { }
 }

@@ -5,35 +5,44 @@
     Author URI:        https://www.linkedin.com/in/jose-aburto/
 */
 
-
-
-
 class NavbarWidget extends BaseWidget {
+    private readonly ASIDE_MENU_VISIBILITY: string = 'main_menu_visibility';
+
+    constructor() {
+        super();
+
+        this.useEffect<boolean>(this.ASIDE_MENU_VISIBILITY, (value) => {
+            if (value === undefined || value === null) return;
+            if (value) this.openMenu();
+            else this.closeMenu();
+        });
+    }
+
     public getContainerId(): string {
-        return "delinternet-man-navbar-id";
+        return 'delinternet-man-navbar-id';
     }
 
     private stickNavbarInTop(container: HTMLDivElement) {
-        document.addEventListener("scroll", (ev) => {
+        document.addEventListener('scroll', (ev) => {
             const isAtTop = (document.documentElement.scrollTop || document.body.scrollTop) === 0;
-            container.style.top = "0px"
-            container.style.position = isAtTop ? "unset" : "fixed"
+            container.style.top = '0px';
+            container.style.position = isAtTop ? 'unset' : 'fixed';
         });
+    }
+
+    protected closeMenu() {
+        WidgetUtils.setDisplay('main-del-menu-ul-container-xs-container-id', 'none');
+    }
+
+    protected openMenu() {
+        WidgetUtils.setDisplay('main-del-menu-ul-container-xs-container-id', 'flex');
     }
 
     public render(rootContainer: HTMLDivElement): void {
         this.stickNavbarInTop(rootContainer);
-
-        WidgetUtils.getButtonById("responsive-menu-icon-button-id").addEventListener("click", () => {
-            WidgetUtils.getDivById("main-del-menu-ul-container-xs-container-id").style.display = "block";
-        });
-
-        WidgetUtils.getDivById("close-menu-container-id").addEventListener("click", () => {
-            WidgetUtils.getDivById("main-del-menu-ul-container-xs-container-id").style.display = "none";
-        });
-
+        WidgetUtils.onClick('close-menu-container-id', () =>this.setState(this.ASIDE_MENU_VISIBILITY, false));
+        WidgetUtils.onClick('responsive-menu-icon-button-id', () => this.setState(this.ASIDE_MENU_VISIBILITY, true));
     }
 }
-
 
 WidgetDOM.render(new NavbarWidget());
