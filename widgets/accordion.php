@@ -15,9 +15,7 @@ use Elementor\Widget_Base;
 class AccordionWidget extends Widget_Base
 {
 
-
-
-    public function __construct($data = array(), $args = null)
+    public function __construct($data = array(), $args = array())
     {
         parent::__construct($data, $args);
         $this->init_scripts();

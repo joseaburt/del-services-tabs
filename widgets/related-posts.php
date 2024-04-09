@@ -19,7 +19,7 @@ require_once __DIR__ . '/../utils/date-formatter.php';
 class RelatedPostsWidget extends Widget_Base
 {
 
-    public function __construct($data = array(), $args = null)
+    public function __construct($data = array(), $args = array())
     {
         parent::__construct($data, $args);
         $this->init_scripts();

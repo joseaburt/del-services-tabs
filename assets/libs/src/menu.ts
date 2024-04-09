@@ -13,7 +13,17 @@ class NavbarWidget extends BaseWidget {
         return "delinternet-man-navbar-id";
     }
 
-    public render(): void {
+    private stickNavbarInTop(container: HTMLDivElement) {
+        document.addEventListener("scroll", (ev) => {
+            const isAtTop = (document.documentElement.scrollTop || document.body.scrollTop) === 0;
+            container.style.top = "0px"
+            container.style.position = isAtTop ? "unset" : "fixed"
+        });
+    }
+
+    public render(rootContainer: HTMLDivElement): void {
+        this.stickNavbarInTop(rootContainer);
+
         WidgetUtils.getButtonById("responsive-menu-icon-button-id").addEventListener("click", () => {
             WidgetUtils.getDivById("main-del-menu-ul-container-xs-container-id").style.display = "block";
         });

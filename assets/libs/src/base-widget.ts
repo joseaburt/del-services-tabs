@@ -7,7 +7,7 @@
 
 
 abstract class BaseWidget {
-    public abstract render(): void;
+    public abstract render(rootContainer: HTMLDivElement): void;
     public abstract getContainerId(): string;
 }
 
@@ -17,7 +17,7 @@ class WidgetDOM {
         document.addEventListener("DOMContentLoaded", () => {
             const rootContainer = WidgetUtils.getDivById(widget.getContainerId());
             if (!rootContainer) return;
-            widget.render();
+            widget.render(rootContainer);
         });
     }
 }

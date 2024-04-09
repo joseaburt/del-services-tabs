@@ -13,7 +13,7 @@ class WidgetDOM {
             const rootContainer = WidgetUtils.getDivById(widget.getContainerId());
             if (!rootContainer)
                 return;
-            widget.render();
+            widget.render(rootContainer);
         });
     }
 }

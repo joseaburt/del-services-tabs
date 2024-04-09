@@ -17,7 +17,7 @@ use Elementor\Widget_Base;
 class Nav_Menu extends Widget_Base
 {
 
-    public function __construct($data = array(), $args = null)
+    public function __construct($data = array(), $args = array())
     {
         parent::__construct($data, $args);
         $this->init_scripts();
@@ -280,7 +280,7 @@ class Nav_Menu extends Widget_Base
         <div class="delinternet-man-navbar" id="delinternet-man-navbar-id">
             <div class="elementor-element e-con-boxed e-con">
                 <div class="e-con-inner main-del-navbar">
-                    <div class="main-del-menu-ul-container-xs-container" id="main-del-menu-ul-container-xs-container-id" style="display: flex;">
+                    <div class="main-del-menu-ul-container-xs-container" id="main-del-menu-ul-container-xs-container-id">
                         <div class="inner-container">
                             <div style="margin-bottom: 1rem; display: flex; align-items: center; justify-content: space-between;">
                                 <a href="/" class="logo-anchor">
