@@ -24,6 +24,7 @@ use Delinternet\Plugins\Widgets\DecoratedHeadingWidget;
 use Delinternet\Plugins\Widgets\FooterWidget;
 use Delinternet\Plugins\Widgets\QuestionsTabWidget;
 use Delinternet\Plugins\Widgets\ReviewsWidget;
+use Delinternet\Plugins\Widgets\ServiceCardWidget;
 
 if (!defined('ABSPATH')) {
     exit;
@@ -47,7 +48,6 @@ final class DelServicesTabsWidget
         add_action('wp_enqueue_scripts', [$this, 'enqueue_tailwind_css']);
     }
 
-    // wp_enqueue_style('del-reviews-widget-css', plugin_dir_url(__FILE__) . '../assets/css/reviews-widget.css');
 
     public function i18n()
     {
@@ -56,8 +56,7 @@ final class DelServicesTabsWidget
 
     function enqueue_tailwind_css()
     {
-        // Enqueue Tailwind CSS from CDN
-        wp_enqueue_style('tailwind-css', 'https://cdn.jsdelivr.net/npm/tailwindcss@0.7.4/dist/tailwind.min.css');
+        wp_enqueue_style('tailwind-css', 'https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css');
     }
 
 
@@ -107,6 +106,10 @@ final class DelServicesTabsWidget
 
         require_once __DIR__ . '/widgets/footer-widget.php';
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new FooterWidget());
+
+
+        require_once __DIR__ . '/widgets/service-card-widget.php';
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new ServiceCardWidget());
     }
 
     public function create_new_category($elements_manager)

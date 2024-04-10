@@ -4,11 +4,10 @@ const path = require("path");
 const args = process.argv.slice(2);
 
 const parsedArgs = args.reduce((acc, curr) => {
-    const [key, value] = curr.split('=');
-    acc[key.replace(/^-+/, '')] = value;
-    return acc;
+  const [key, value] = curr.split("=");
+  acc[key.replace(/^-+/, "")] = value;
+  return acc;
 }, {});
-
 
 const widgetCode = `<?php
 /*
@@ -34,9 +33,7 @@ class {{widgetname}} extends Widget_Base
 
     protected function init_scripts()
     {
-        wp_enqueue_script('delinternet-event-bus-js', plugin_dir_url(__FILE__) . '../assets/js/event-bus.js');
-        wp_enqueue_script('delinternet-base-widget-js', plugin_dir_url(__FILE__) . '../assets/js/base-widget.js');
-        wp_enqueue_script('delinternet-utils-js', plugin_dir_url(__FILE__) . '../assets/js/utils.js');
+        wp_enqueue_script('del-commons-js', plugin_dir_url(__FILE__) . '../assets/js/del-commons.js');
         
         wp_enqueue_script('del-{{filename}}-js', plugin_dir_url(__FILE__) . '../assets/js/{{filename}}.js');
         wp_enqueue_style('del-{{filename}}-css', plugin_dir_url(__FILE__) . '../assets/css/{{filename}}.css');
@@ -77,32 +74,37 @@ class {{widgetname}} extends Widget_Base
 <?php
     }
 }
-`
+`;
 // Access the value of 'filename' argument
-let filename = parsedArgs.filename.replace(/_/g, '-')
+let filename = parsedArgs.filename.replace(/_/g, "-");
 
-
-if (!filename.endsWith("_widget")) filename += "-widget"
-
-
+if (!filename.endsWith("_widget")) filename += "-widget";
 
 if (fs.existsSync(path.join(__dirname, "./widgets", `${filename}.php`))) {
-    throw new Error(`${filename} file already exists.`);
+  throw new Error(`${filename} file already exists.`);
 }
 
-
-const widgetClassName = filename.replace(/-/g, ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('')
+const widgetClassName = filename
+  .replace(/-/g, " ")
+  .split(" ")
+  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+  .join("");
 
 const compiledWidgetCode = widgetCode
-    .replace(/{{filename}}/g, filename)
-    .replace(/{{widgetname}}/g, widgetClassName)
+  .replace(/{{filename}}/g, filename)
+  .replace(/{{widgetname}}/g, widgetClassName);
 
+fs.writeFileSync(
+  path.join(__dirname, "./widgets", `${filename}.php`),
+  compiledWidgetCode
+);
 
-
-fs.writeFileSync(path.join(__dirname, "./widgets", `${filename}.php`), compiledWidgetCode);
-
-if (!fs.existsSync(path.join(__dirname, "./assets/libs/src", `${filename}.ts`))) {
-    fs.writeFileSync(path.join(__dirname, "./assets/libs/src", `${filename}.ts`), `
+if (
+  !fs.existsSync(path.join(__dirname, "./assets/libs/src", `${filename}.ts`))
+) {
+  fs.writeFileSync(
+    path.join(__dirname, "./assets/libs/src", `${filename}.ts`),
+    `
 /* 
     Widget Script
     Widget Name:       ${widgetClassName}
@@ -121,11 +123,14 @@ class  ${widgetClassName} extends BaseWidget {
 
 
 WidgetDOM.render(new ${widgetClassName}());
-    `);
+    `
+  );
 }
 
 if (!fs.existsSync(path.join(__dirname, "./assets/css", `${filename}.css`))) {
-    fs.writeFileSync(path.join(__dirname, "./assets/css", `${filename}.css`), `
+  fs.writeFileSync(
+    path.join(__dirname, "./assets/css", `${filename}.css`),
+    `
     /* 
     Widget Styles
     Widget Name:       ${widgetClassName}
@@ -136,7 +141,8 @@ if (!fs.existsSync(path.join(__dirname, "./assets/css", `${filename}.css`))) {
 #del-${filename}-id {}
 
 
-`);
+`
+  );
 }
 
 const registrationInstructions = `
@@ -149,5 +155,3 @@ Import it manually into the del-services-tabs.php file.
 `;
 
 console.log(registrationInstructions);
-
-
