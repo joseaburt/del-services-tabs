@@ -183,6 +183,37 @@ class FooterWidget extends Widget_Base
         $this->end_controls_section();
     }
 
+    private function subcribeForm($subscrition_description, $social_media_list)
+    {
+?>
+        <div class="footer-social-medias-container">
+            <div>
+                <h6>
+                    Boletines
+                </h6>
+                <p>
+                    <?php echo $subscrition_description; ?>
+                </p>
+            </div>
+            <form>
+                <div class="email-input-control">
+                    <input type="email" name="" id="" placeholder="Insert Email">
+                    <input type="submit" id="subscribe-footer-btn" value="Subscribir" />
+                </div>
+            </form>
+            <hr>
+            <div class="footer-social-medias">
+                <?php foreach ($social_media_list as $social_media) : ?>
+                    <a href="<?php echo $social_media['social_media_url']; ?>" target="__blank">
+                        <?php echo $social_media['social_media_icon']; ?>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+    <?php
+    }
+
 
 
     protected function render()
@@ -195,7 +226,7 @@ class FooterWidget extends Widget_Base
         $subscrition_description = $settings['subscrition_description'];
         $social_media_list = $settings['social_media_list'];
 
-?>
+    ?>
         <div class="del-footer-widget" id="del-footer-widget-id">
             <ul class="del-footer-services-container">
                 <?php foreach ($services_groups as $group) : ?>
@@ -231,32 +262,8 @@ class FooterWidget extends Widget_Base
                 </li>
 
             </ul>
-            <div class="footer-social-medias-container">
-                <div>
-                    <h6>
-                        Boletines
-                    </h6>
-                    <p>
-                        <?php echo $subscrition_description; ?>
-                    </p>
-                </div>
-                <div>
-                    <div class="email-input-control">
-                        <input type="email" name="" id="" placeholder="Insert Email">
-                        <button id="subscribe-footer-btn">
-                            Subscribir
-                        </button>
-                    </div>
-                </div>
-                <hr>
-                <div class="footer-social-medias">
-                    <?php foreach ($social_media_list as $social_media) : ?>
-                        <a href="<?php echo $social_media['social_media_url']; ?>" target="__blank">
-                            <?php echo $social_media['social_media_icon']; ?>
-                        </a>
-                    <?php endforeach; ?>
-                </div>
-            </div>
+            <?php $this->subcribeForm($subscrition_description, $social_media_list); ?>
+            <!--  -->
         </div>
 <?php
     }

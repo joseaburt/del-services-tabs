@@ -80,3 +80,41 @@
 .del-reviews-widget>.controls>button:hover {
     color: var(--e-global-color-accent) !important;
 }
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 767.8px) {
+    .del-reviews-widget>.cards-container>.review-card {
+        min-width: 280px;
+        max-width: 280px;
+    }
+
+    .del-reviews-widget>.cards-container {
+        overflow: auto;
+    }
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 1123.8px) {
+    .del-reviews-widget>.cards-container>.review-card {
+        min-width: 280px;
+        max-width: 280px;
+    }
+
+    .del-reviews-widget>.cards-container {
+        overflow: auto;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 1124px) {
+    .del-reviews-widget>.cards-container>.review-card {
+        min-width: 380px;
+        max-width: 380px;
+    }
+
+    .del-reviews-widget>.cards-container {
+        overflow: hidden;
+    }
+}

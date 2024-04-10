@@ -5,6 +5,7 @@
     Author URI:        https://www.linkedin.com/in/jose-aburto/
 */
 .del-footer-widget {
+    width: 100% !important;
     display: flex;
     gap: 2rem;
     color: #FFF !important;
@@ -117,17 +118,44 @@
     padding: 0.8rem 1rem !important;
 }
 
-/* Small devices (landscape phones, 576px and up) */
-@media (max-width: 767.8px) {
+.del-footer-services-container {
+    grid-area: services;
+}
+
+.del-footer-address-container {
+    grid-area: address;
+}
+
+.footer-social-medias-container {
+    grid-area: socialMedias;
+}
+
+
+@media (max-width: 580px) {
     .del-footer-widget {
+        width: 100% !important;
         display: flex;
         flex-direction: column;
     }
 
     .del-footer-services-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        display: flex !important;
+        flex-wrap: wrap !important;
     }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 580.8px) and (max-width: 767.8px) {
+
+    .del-footer-widget {
+        width: 100% !important;
+        display: grid;
+        grid-template-areas: "services services"
+            "address socialMedias"
+        ;
+    }
+
+
 }
 
 
@@ -136,8 +164,11 @@
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 1124px) {
     .del-footer-widget {
-        display: flex;
-        flex-direction: column;
+        width: 100% !important;
+        display: grid;
+        grid-template-areas: "services address"
+            "services socialMedias"
+        ;
     }
 
     .del-footer-services-container {
