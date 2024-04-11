@@ -139,16 +139,18 @@ class ServiceCardWidget extends Widget_Base
         $show_more_button_url = $settings['show_more_button_url'];
 ?>
         <div class="del-service-card-widget w-full h-full rounded-2xl shadow-sm px-12 py-8 flex flex-col gap-2 items-center justify-between flex-wrap border border-slate-400" style="background-color: #FEFEFA; height: 100%; width: 100%;" id="del-service-card-widget-id">
-            <div class="w-16 h-16 flex justify-center items-center">
-                <img src="<?php echo $icon; ?>" alt="delinternet-service-item" class="h-full">
-            </div>
-            <div class="flex flex-col gap-0 items-center text-center">
-                <h2 class="text-lg font-bold text-slate-700 font-sans m-0 mb-0 text-center">
-                    <?php echo $title; ?>
-                </h2>
-                <p class="text-md text-slate-900 font-sans text-center">
-                    <?php echo $description; ?>
-                </p>
+            <div class="flex flex-col gap-4 items-center">
+                <div class="w-16 h-16 flex justify-center items-center">
+                    <img src="<?php echo $icon; ?>" alt="delinternet-service-item" class="h-full">
+                </div>
+                <div class="flex flex-col gap-0 items-center text-center">
+                    <h2 class="text-lg font-bold text-slate-700 font-sans m-0 mb-0 text-center">
+                        <?php echo $title; ?>
+                    </h2>
+                    <p class="text-md text-slate-900 font-sans text-center">
+                        <?php echo $description; ?>
+                    </p>
+                </div>
             </div>
             <?php if ('yes' != $show_see_more_button) : ?>
                 <a href="<?php echo $show_more_button_url; ?>" class="rounded-full px-3 py-2 flex items-center gap-1 show_more_button">

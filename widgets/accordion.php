@@ -127,7 +127,7 @@ class AccordionWidget extends Widget_Base
                 <li class="accordion-item" data-isSummaryVisible="false">
                     <button class="accordion-summary">
                         <?php echo $item['summary_text']; ?>
-                        <span>+</span>
+                        <div>+</div>
                     </button>
                     <div class="accordion-details">
                         <?php echo $item['details_text']; ?>

@@ -98,18 +98,29 @@ class ServiceTabsWidget {
 
         const tabSectionsContainer = document.getElementById(ServiceTabsWidget.TAB_CONTENT_SECTIONS_CONTAINER);
         if (!tabSectionsContainer) throw new Error("Tab Section Container is not defined.");
+
+
         tabSectionsContainer.querySelectorAll<HTMLDivElement>("section").forEach((section) => {
             const tabSection = new TabContentSectionComponent(section, this.bus);
             this.contentSections[tabSection.getDataId()] = tabSection;
         });
 
         const tabContainer = document.getElementById(ServiceTabsWidget.TABS_CONTAINER);
-        if (!tabContainer) throw new Error("Tab Container is not defined.");
-        tabContainer.querySelectorAll<HTMLButtonElement>(ServiceTabsWidget.BUTTON_TAB_CLASS).forEach((tab, index) => {
-            const tabButton = new TabButtonComponent(tab, this.bus);
-            this.tabs[tabButton.getDataId()] = tabButton;
-            if (index === 0) tabButton.click();
-        });
+        if (tabContainer) {
+            const tabs = tabContainer.querySelectorAll<HTMLButtonElement>(ServiceTabsWidget.BUTTON_TAB_CLASS)
+    
+            tabs.forEach((tab, index) => {
+                const tabButton = new TabButtonComponent(tab, this.bus);
+                this.tabs[tabButton.getDataId()] = tabButton;
+                if (index === 0) tabButton.click();
+            });
+    
+        }else {
+            this.bus.dispatch(ON_TAB_CLICKED_EVENT, "1");
+        }
+        
+        
+    
     }
 
     public static getInstance() {

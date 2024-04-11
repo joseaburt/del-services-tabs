@@ -299,17 +299,21 @@ class DelinternetServiceTabWidget extends Widget_Base
         $services = $settings['services'];
 ?>
         <div class="del-service-tabs-widget-container">
-            <div id="del-service-tabs-container-id" class="del-service-tabs-container">
-                <?php
-                $tabCounter = 0;
-                foreach ($services as $tab) :
-                    $tabCounter++;
-                ?>
-                    <button data-tab-id="<?php echo  $tabCounter; ?>" id="service-tab-<?php echo  $tabCounter; ?>" class="tab-btn">
-                        <?php echo  $tab['tab_title']; ?>
-                    </button>
-                <?php endforeach; ?>
-            </div>
+
+            <?php if (count($services) > 1) : ?>
+                <div id="del-service-tabs-container-id" class="del-service-tabs-container">
+                    <?php
+                    $tabCounter = 0;
+                    foreach ($services as $tab) :
+                        $tabCounter++;
+                    ?>
+                        <button data-tab-id="<?php echo  $tabCounter; ?>" id="service-tab-<?php echo  $tabCounter; ?>" class="tab-btn">
+                            <?php echo  $tab['tab_title']; ?>
+                        </button>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+
             <div id="del-service-content-sections-container-id" class="del-service-content-sections-container">
                 <?php
                 $tabCounterSection = 0;
@@ -351,8 +355,8 @@ class DelinternetServiceTabWidget extends Widget_Base
                                                     <?php echo $card_props['price_details']; ?>
                                                 </p>
                                             </div>
-                                            <div class="divider">
-                                                <hr>
+                                            <div class="divider border-t <?php echo $card_props['card_type'] == 'light' ? '' : 'border-slate-700' ?>">
+                                                <hr class="border">
                                             </div>
                                             <div class="service-pack-card-features">
                                                 <?php foreach ($card_props['list'] as $item) : ?>
