@@ -253,6 +253,7 @@ class DelinternetServiceTabWidget extends Widget_Base
                 'label' => __('Service Card', 'plugin-domain'),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => $tabServicesCardsRepeater->get_controls(),
+                'title_field' => '{{{ card_title }}}',
             ]
         );
 
@@ -265,6 +266,7 @@ class DelinternetServiceTabWidget extends Widget_Base
                 'fields' => $mainRepeater->get_controls(),
                 'label' => __('Services', 'plugin-domain'),
                 'type' => \Elementor\Controls_Manager::REPEATER,
+                'title_field' => '{{{ tab_title }}}',
             ]
         );
 
@@ -318,10 +320,10 @@ class DelinternetServiceTabWidget extends Widget_Base
                         <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
                             <?php foreach ($tab['tab_service_cards'] as $card_props) : ?>
                                 <div class="service-pack-card_<?php echo $card_props['card_type']; ?>_theme">
-                                    <div class="service-pack-card-container">
+                                    <div class="service-pack-card-container" style="max-width: 300px;">
                                         <div class="service-pack-card-inner-container">
                                             <div class="service-pack-card-header">
-                                                <h2 class="header-title"><?php echo $card_props['card_title']; ?></h2>
+                                                <h2 class="header-title text-center"><?php echo $card_props['card_title']; ?></h2>
                                             </div>
                                             <div class="service-pack-card-price">
                                                 <?php if ('yes' == $card_props['show_prices']) : ?>
