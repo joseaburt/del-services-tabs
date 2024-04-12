@@ -342,23 +342,29 @@ class DelinternetServiceTabWidget extends Widget_Base
                                                         <?php echo $card_props['custom_price_value']; ?>
                                                     </span>
                                                 <?php endif; ?>
-                                                <p class="price_details">
-                                                    <?php echo $card_props['price_details']; ?>
-                                                </p>
+                                                <?php if (!empty($card_props['price_details'])) : ?>
+                                                    <p class="price_details">
+                                                        <?php echo $card_props['price_details']; ?>
+                                                    </p>
+                                                <?php endif; ?>
                                             </div>
                                             <div class="divider border-t <?php echo $card_props['card_type'] == 'light' ? '' : 'border-slate-700' ?>">
                                                 <hr class="border">
                                             </div>
                                             <div class="service-pack-card-features">
                                                 <?php foreach ($card_props['list'] as $item) : ?>
-                                                    <div style="display: flex; align-items: center; gap: 10px;">
-                                                        <span style="color: var(--e-global-color-primary);">
-                                                            <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9">
-                                                                <path d="M301.439,37.44,296.5,42.379l-1.939-1.939a1.5,1.5,0,1,0-2.121,2.121l3,3a1.5,1.5,0,0,0,2.121,0l6-6a1.5,1.5,0,0,0-2.121-2.121Z" transform="translate(-292 -37)"></path>
-                                                            </svg>
-                                                        </span>
-                                                        <?php echo $item['feature_text']; ?>
-                                                    </div>
+
+                                                    <?php if (!empty($item['feature_text'])) : ?>
+                                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                                            <span style="color: var(--e-global-color-primary);">
+                                                                <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9">
+                                                                    <path d="M301.439,37.44,296.5,42.379l-1.939-1.939a1.5,1.5,0,1,0-2.121,2.121l3,3a1.5,1.5,0,0,0,2.121,0l6-6a1.5,1.5,0,0,0-2.121-2.121Z" transform="translate(-292 -37)"></path>
+                                                                </svg>
+                                                            </span>
+                                                            <?php echo $item['feature_text']; ?>
+                                                        </div>
+                                                    <?php endif; ?>
+
                                                 <?php endforeach; ?>
                                             </div>
                                             <div class="service-pack-card-action" style="background: <?php $card_props['background_background']; ?>">
