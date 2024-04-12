@@ -209,15 +209,6 @@ class DelinternetServiceTabWidget extends Widget_Base
                     [
                         'feature_text' => __('upto 5 users', 'plugin-domain'),
                     ],
-                    [
-                        'feature_text' => __('max 100 items/month', 'plugin-domain'),
-                    ],
-                    [
-                        'feature_text' => __('500 quries', 'plugin-domain'),
-                    ],
-                    [
-                        'feature_text' => __('basic statistic', 'plugin-domain'),
-                    ],
                 ],
                 'title_field' => '{{{ feature_text }}}',
             ]
@@ -301,7 +292,7 @@ class DelinternetServiceTabWidget extends Widget_Base
         <div class="del-service-tabs-widget-container">
 
             <?php if (count($services) > 1) : ?>
-                <div id="del-service-tabs-container-id" class="del-service-tabs-container">
+                <div id="del-service-tabs-container-id" class="del-service-tabs-container bg-white">
                     <?php
                     $tabCounter = 0;
                     foreach ($services as $tab) :

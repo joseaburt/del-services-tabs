@@ -211,6 +211,13 @@ class Nav_Menu extends Widget_Base
 
     private function navBarList($menu, $className = "main-del-menu-ul-container")
     {
+
+        $url = get_permalink();
+
+
+
+
+
 ?>
         <ul class="<?php echo $className; ?>">
             <?php foreach ($menu as $item) : ?>
@@ -223,7 +230,7 @@ class Nav_Menu extends Widget_Base
                                     <path d="M12 5v14" />
                                 </svg>
                             <?php endif; ?>
-                            <a class="menu-anchor" href="<?php echo $item['url']; ?>">
+                            <a class="menu-anchor" href="<?php echo $item['url']; ?>" style="color: <?php echo strstr($url, $item['url']) ? 'var(--e-global-color-primary)' : '' ?> !important;">
                                 <?php echo $item['title']; ?>
                             </a>
                         </div>
@@ -273,6 +280,10 @@ class Nav_Menu extends Widget_Base
         $logo = $settings['image'];
         $contactPhone = $settings['contactPhone'];
         $shallWeCallYouBtnText = $settings['shallWeCallYouBtnText'];
+
+
+
+
     ?>
 
         <div class="delinternet-man-navbar" id="delinternet-man-navbar-id">
