@@ -1,0 +1,60 @@
+/* 
+    Widget Styles
+    Widget Name:       Accordion
+    Author:            Jose Aburto
+    Author URI:        https://www.linkedin.com/in/jose-aburto/
+*/
+
+/* 
+    TODO:
+    - Work on variables, for use globals one.
+*/
+
+:root {
+    --accordion-gray-light: #f6f6f6;
+    --accordion-gray-dark: #dee2e6;
+}
+
+.elementor-widget-container {
+    width: 100% !important;
+}
+
+#accordion-container {
+    gap: 1rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+}
+
+.accordion-item {
+    list-style: none;
+    border-radius: 1rem;
+    background-color: var(--accordion-gray-light);
+}
+
+.accordion-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100% !important;
+    padding: 1rem 1.5rem !important;
+    background-color: transparent !important;
+    color: var(--e-global-color-secondary) !important;
+}
+
+.accordion-summary>div {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--e-global-color-accent);
+}
+
+.accordion-item>.accordion-details {
+    display: none;
+    padding: 1.5rem !important;
+    border-top: 1px solid var(--accordion-gray-dark);
+}
+
+.accordion-item[data-isVisible="true"]>.accordion-details {
+    display: block;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>JS Bin</title>
+
+
+        <style>
+          .posts-list  li {
+                 list-style: none;
+            }
+
+            .post-thumbnail {
+                position: relative;
+                height: fit-content;
+                width: fit-content;
+                overflow: hidden;
+                border-radius: 1rem;
+            }
+
+            .post-thumbnail > img {
+                filter: 'gray(0.5)';
+            }
+
+            .post-info {
+                height: 100%;
+                width: 100%;
+                background-color: rgba(3, 22, 35, 0.434);
+                position: absolute;
+                top: 0;
+                color: azure;
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+                
+            }
+            .post-info div {
+                height: 100%;
+                padding: 1rem 1.2rem;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+            }
+       
+            .post-info div h6 {
+                font-size: 2rem;
+                line-height: 0;
+                margin: 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <ul class="posts-list">
+            <li>
+                <div class="post-thumbnail">
+                    <img decoding="async" width="300" height="187"
+                        src="https://del.liara.run/wp-content/uploads/2022/11/post-featured-img5-300x187.jpg"
+                        class="attachment-medium size-medium wp-post-image" alt=""
+                        srcset="https://del.liara.run/wp-content/uploads/2022/11/post-featured-img5-300x187.jpg 300w, https://del.liara.run/wp-content/uploads/2022/11/post-featured-img5-600x373.jpg 600w, https://del.liara.run/wp-content/uploads/2022/11/post-featured-img5-1024x637.jpg 1024w, https://del.liara.run/wp-content/uploads/2022/11/post-featured-img5-768x478.jpg 768w, https://del.liara.run/wp-content/uploads/2022/11/post-featured-img5.jpg 1035w"
+                        sizes="(max-width: 300px) 100vw, 300px">
+                        <div class="post-info">
+                           <div>
+                            <h6>Article Title</h6>
+                            <p>Posted on March 12, 2024</p>
+                           </div>
+                        </div>
+                </div>
+            </li>
+         
+        </ul>
+    </body>
+
+    </html>
+</body>
+
+</html>

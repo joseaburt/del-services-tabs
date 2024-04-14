@@ -1,0 +1,33 @@
+/* 
+    Widget Styles
+    Widget Name:       ServiceCardWidget
+    Author:            Jose Aburto
+    Author URI:        https://www.linkedin.com/in/jose-aburto/
+*/
+
+.elementor-widget-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.del-service-card-widget {
+    max-width: 300px !important;
+}
+
+.del-service-card-widget h2 {
+    margin: 0px !important;
+}
+
+.see-more-action:hover {
+    background-color: attr(data-hover-bg);
+}
+
+.show_more_button {
+    color: var(--e-global-color-text) !important;
+    background-color: #f8fbe5 !important;
+}
+
+.show_more_button:hover {
+    background-color: #f2fac2 !important;
+}

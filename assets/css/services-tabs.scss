@@ -1,0 +1,53 @@
+/* 
+    Widget Styles
+    Widget Name:       Delinternet Services Packs Tabs
+    Author:            Jose Aburto
+    Author URI:        https://www.linkedin.com/in/jose-aburto/
+*/
+
+@import "./service-card.scss";
+
+$primaryColor: var(--e-global-color-primary);
+$textColor: var(--e-global-color-text);
+$primaryColorTransparent: #b9d2051f;
+
+/* =============================================== */
+/* DELINTERNET SERVICES TABS */
+/* =============================================== */
+.del-service-tabs-widget-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2rem;
+
+    // =======================
+    .del-service-tabs-container {
+        border: 1px solid #e3e3e3;
+        padding: 0.5rem;
+        border-radius: 5rem;
+    }
+
+    .tab-btn {
+        border-radius: 5rem !important;
+        color: $textColor !important;
+        font-weight: 400 !important;
+        padding: 0.8rem 1rem !important;
+        background-color: transparent !important;
+    }
+
+    .tab-btn:hover {
+        background-color: $primaryColorTransparent !important;
+    }
+
+    .active-tab {
+        background-color: $primaryColor !important;
+    }
+
+    .active-tab:hover {
+        background-color: $primaryColor !important;
+    }
+
+    .del-service-content-sections-container > section {
+        display: none;
+    }
+}

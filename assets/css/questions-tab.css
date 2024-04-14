@@ -1,0 +1,152 @@
+/* 
+    Widget Styles
+    Widget Name:       Tab Component
+    Author:            Jose Aburto
+    Author URI:        https://www.linkedin.com/in/jose-aburto/
+*/
+
+:root {
+    --accordion-gray-dark: #dee2e6;
+    --accordion-gray-light: #f6f6f6;
+}
+
+/* .elementor-element {
+    width: 100% !important;
+}
+
+.elementor-widget-container {
+    width: 100% !important;
+} */
+
+
+#questions-tab-container {
+    max-width: 100% !important;
+    min-width: 100% !important;
+}
+
+#questions-tab-container button {
+    background-color: transparent !important;
+    color: var(--e-global-color-secondary) !important;
+}
+
+.tabs-container2 {
+    gap: 1rem;
+    width: 100%;
+    display: flex;
+    position: relative;
+    overflow-x: hidden;
+    align-items: center;
+}
+
+#questions-tab-header {
+    margin: 0;
+    gap: 1rem !important;
+    display: flex;
+    max-width: 100%;
+    min-width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    border-bottom: 3px solid var(--accordion-gray-dark);
+}
+
+#questions-tab-header .questions-tab-item {
+    list-style: none;
+    text-wrap: nowrap;
+}
+
+#questions-tab-header .questions-tab-item button {
+    padding: 1rem !important;
+}
+
+.questions-tab-tab-content {
+    display: none;
+    padding: 1rem 0px;
+}
+
+.questions-tab-header-container {
+    width: 100% !important;
+}
+
+.tabs-container {
+    gap: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#tabs-indicator {
+    bottom: 0;
+    height: 4px;
+    display: none;
+    position: absolute;
+    border-radius: 2rem;
+    background-color: var(--e-global-color-primary);
+}
+
+.action-btn {
+    padding: 0rem;
+    height: fit-content;
+    background-color: #ffffff5e !important;
+}
+
+#tab-content-1 {
+    display: block;
+}
+
+
+/* =============================== */
+
+
+.elementor-widget-container {
+    width: 100% !important;
+}
+
+#tabs-accordion-container {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+}
+
+.tabs-accordion-item {
+    list-style: none;
+    border-radius: 1rem;
+}
+
+.tabs-accordion-summary {
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-weight: 500;
+    width: 100% !important;
+    padding: 1rem !important;
+    background-color: transparent !important;
+
+}
+
+.tabs-accordion-summary>span {
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--e-global-color-accent);
+}
+
+.tabs-accordion-item>.tabs-accordion-details {
+    display: none;
+    border-top: 1px dashed var(--accordion-gray-dark);
+    padding: 1rem 1rem 0rem 1rem !important;
+}
+
+.tabs-accordion-item[data-isVisible="true"]>.tabs-accordion-details {
+    display: block;
+}
+
+#open-btn-icon {
+    color: var(--e-global-color-secondary) !important;
+}
+
+#close-btn-icon {
+    display: none;
+    color: var(--e-global-color-primary) !important;
+}
