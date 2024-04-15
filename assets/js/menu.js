@@ -34,7 +34,28 @@ class NavbarWidget extends BaseWidget {
     openMenu() {
         WidgetUtils.setDisplay('main-del-menu-ul-container-xs-container-id', 'flex');
     }
+    initModal() {
+        let isOpen = false;
+        const openButtons = document.querySelectorAll('#shall-we-call-you-text-button');
+        const closeButton = WidgetUtils.getButtonById('close-model-button');
+        const modalContainer = WidgetUtils.getDivById('global-model-container');
+        openButtons.forEach((el) => {
+            el.addEventListener('click', () => {
+                console.log('Open button click');
+                modalContainer.style.display = 'block';
+                isOpen = true;
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        closeButton.addEventListener('click', () => {
+            console.log('Close button click');
+            modalContainer.style.display = 'none';
+            isOpen = false;
+            document.body.style.overflow = 'auto';
+        });
+    }
     render(rootContainer) {
+        this.initModal();
         this.stickNavbarInTop(rootContainer);
         WidgetUtils.onClick('close-menu-container-id', () => this.setState(this.ASIDE_MENU_VISIBILITY, false));
         WidgetUtils.onClick('responsive-menu-icon-button-id', () => this.setState(this.ASIDE_MENU_VISIBILITY, true));
